@@ -9,6 +9,7 @@ import controlador.Oraclep;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author Eparrales
@@ -46,6 +47,9 @@ public class Servicios extends javax.swing.JFrame {
         txtdesc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtcateg = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaserv = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,24 +104,23 @@ public class Servicios extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtcateg, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtdesc, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtnomb, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(txtcodserv, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(168, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtcodserv, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtnomb)
+                            .addComponent(txtcateg, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtdesc, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,18 +134,35 @@ public class Servicios extends javax.swing.JFrame {
                     .addComponent(txtnomb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtdesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtcateg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtcateg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
+
+        tablaserv.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tablaserv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaservMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaserv);
+
+        jLabel5.setText("SERVICIOS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,16 +186,25 @@ public class Servicios extends javax.swing.JFrame {
                                 .addGap(68, 68, 68)
                                 .addComponent(btnActualizar))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(252, 252, 252)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel5)
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoRegistro)
                     .addComponent(saveButton)
@@ -197,7 +226,7 @@ public class Servicios extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
 
-        String sql, COD_SERVICO, NOMBRE, DESCRIPCION, CATEGORIA;
+        String sql,NOMBRE, DESCRIPCION, CATEGORIA;
 
         try {
 
@@ -215,33 +244,27 @@ public class Servicios extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        String sql, NOMBRE, MODELO, FECHA, NUM_FACTURA, ID_PROVEE, MARCA;
-        int COD_INV, CANT_EXISTENCIA, CANT_COMPRA;
-        double VALOR_SINIVA_UNIDAD, VALOR_IVA;
-        try {
-            COD_INV= Integer.parseInt(txtcod.getText());
-            NOMBRE = txtnomb.getText();
-            MARCA = txtmarca.getText();
-            MODELO = txtmod.getText();
-            CANT_COMPRA = Integer.parseInt(txtcantcompra.getText());
-            VALOR_SINIVA_UNIDAD = Double.parseDouble(txtvalorsiniva.getText());
-            VALOR_IVA = getIva(VALOR_SINIVA_UNIDAD);
-            FECHA = txtfecha.getText();
-            NUM_FACTURA = txtnumfact.getText();
-            ID_PROVEE = txtprovee.getText();
-            CANT_EXISTENCIA = Integer.parseInt(txtcanstock.getText());
+        String sql,NOMBRE, DESCRIPCION, CATEGORIA;
+        int COD_SERVICO;
 
-            sql = "update inventarios set NOMBRE='"+NOMBRE+"',MARCA='"+MARCA+"',MODELO='"+MODELO+"',CANT_COMPRA="+CANT_COMPRA+",VALOR_SINIVA_UNIDAD="+VALOR_SINIVA_UNIDAD+",VALOR_IVA="+VALOR_IVA+",FECHA='"+FECHA+"',NUM_FACTURA='"+NUM_FACTURA+"',ID_PROVEE='"+ID_PROVEE+"',CANT_EXISTENCIA="+CANT_EXISTENCIA+" WHERE COD_INV="+COD_INV;
+        try {
+             COD_SERVICO= Integer.parseInt(txtcodserv.getText());
+            NOMBRE = txtnomb.getText();
+            DESCRIPCION = txtdesc.getText();
+            CATEGORIA = txtcateg.getText();
+
+            sql = "update servicios set NOMBRE='" + NOMBRE + "', DESCRIPCION='" + DESCRIPCION+ "',CATEGORIA='" + CATEGORIA + "' WHERE COD_SERVICO="+COD_SERVICO;
             ora2.regisData(sql);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
         }
 
+
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        int  cod= Integer.parseInt(txtcod.getText());
+        int  cod= Integer.parseInt(txtcodserv.getText());
         String sql;
         int respuesta = JOptionPane.showConfirmDialog(null, " ¿Esta seguro que desea elminiar el registro? " +cod, "Eliminar Registro", JOptionPane.YES_NO_CANCEL_OPTION);
         switch (respuesta) {
@@ -259,7 +282,7 @@ public class Servicios extends javax.swing.JFrame {
         if (respuesta == 0) {
 
             try {
-                sql="delete inventarios where COD_INV="+cod;
+                sql="delete servicios where COD_SERVICO ="+cod;
                 ora2.regisData(sql);
 
             } catch (Exception e) {
@@ -273,6 +296,58 @@ public class Servicios extends javax.swing.JFrame {
         refresh();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void tablaservMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaservMouseClicked
+      int fila = tablaserv.getSelectedRow();
+        txtcodserv.setText(tablaserv.getModel().getValueAt(fila, 0).toString());
+        txtnomb.setText(tablaserv.getModel().getValueAt(fila, 1).toString());
+        txtdesc.setText(tablaserv.getModel().getValueAt(fila, 2).toString());
+        txtcateg.setText(tablaserv.getModel().getValueAt(fila, 3).toString());
+    }//GEN-LAST:event_tablaservMouseClicked
+      // metodos utilitarios
+    
+     public void refresh(){
+          modta2= new DefaultTableModel();
+          String sql="select * from servicios";
+          ora2.consultar(sql);
+           
+         try {
+             int numCol = ora2.getRstmdata().getColumnCount();
+             for (int i = 0; i < numCol; i++) {
+                 modta2.addColumn(ora2.getRstmdata().getColumnLabel(i + 1));
+
+             }
+
+             while (ora2.getRst().next()) {
+                 Object[] fila = new Object[numCol];
+                 for (int i = 0; i < numCol; i++) {
+                     fila[i] = ora2.getRst().getObject(i + 1);
+                 }
+
+                 modta2.addRow(fila);
+                 tablaserv.setModel(modta2);
+             }
+
+         } catch (Exception e) {
+         }
+    }
+   
+    public void limpCampos() {
+        txtcateg.setText("");
+        txtcodserv.setText("");
+        txtnomb.setText("");
+        txtdesc.setText("");
+        
+    }
+    
+    
+     
+    
+    
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -317,8 +392,11 @@ public class Servicios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton saveButton;
+    private javax.swing.JTable tablaserv;
     private javax.swing.JTextField txtcateg;
     private javax.swing.JTextField txtcodserv;
     private javax.swing.JTextField txtdesc;
