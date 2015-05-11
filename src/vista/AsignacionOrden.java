@@ -314,6 +314,10 @@ public class AsignacionOrden extends javax.swing.JFrame {
            
             sql = "insert into asignaciones_ordenes values(null,'"+ID_ESPECIALISTAS+"','"+ID_ORDENES+"','"+OBSERVACIONES+"','"+FECHA+"')";
             ora2.regisData(sql);
+            
+            String sql2="update ordenes set estado='Asignada' where cod_ordenes='"+ID_ORDENES+"'";
+            ora2.regisData(sql2);
+            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
@@ -334,6 +338,8 @@ public class AsignacionOrden extends javax.swing.JFrame {
            
             sql = "update  asignaciones_ordenes set ID_ESPECIALISTAS='"+ID_ESPECIALISTAS+"',ID_ORDENES ='"+ID_ORDENES+"',OBSERVACIONES='"+OBSERVACIONES+"',FECHA='"+FECHA+"' WHERE COD_ASIGNACION="+COD_ASIGNACION;
             ora2.regisData(sql);
+
+            
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);

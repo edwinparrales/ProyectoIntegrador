@@ -68,6 +68,8 @@ public class Orden extends javax.swing.JFrame {
         btnasigequiposcliente = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        btnfiltrarestado = new javax.swing.JButton();
+        selectestadifiltro = new javax.swing.JComboBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -252,7 +254,7 @@ public class Orden extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Asignaciones");
+        jButton3.setText("Asignar Orden");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -260,6 +262,15 @@ public class Orden extends javax.swing.JFrame {
         });
 
         jButton4.setText("Asignar Detalle Ord");
+
+        btnfiltrarestado.setText("Filtrar");
+        btnfiltrarestado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfiltrarestadoActionPerformed(evt);
+            }
+        });
+
+        selectestadifiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Creada", "Asignada", "Anulada", "Finalizada" }));
 
         jMenu1.setText("Ingresos");
 
@@ -295,31 +306,36 @@ public class Orden extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNuevoRegistro2)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnguardar)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnModificar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btneliminar)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnActualizar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtbuscodord, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(btnBuscar)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                             .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnasigequiposcliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnasigequiposcliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtbuscodord, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(btnBuscar)
+                                .addGap(37, 37, 37)
+                                .addComponent(selectestadifiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addComponent(btnfiltrarestado))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnNuevoRegistro2)
+                                .addGap(51, 51, 51)
+                                .addComponent(btnguardar)
+                                .addGap(41, 41, 41)
+                                .addComponent(btnModificar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btneliminar)
+                                .addGap(30, 30, 30)
+                                .addComponent(btnActualizar))
+                            .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -351,7 +367,9 @@ public class Orden extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(jLabel2)
-                    .addComponent(txtbuscodord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtbuscodord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnfiltrarestado)
+                    .addComponent(selectestadifiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -553,6 +571,62 @@ public class Orden extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void btnfiltrarestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfiltrarestadoActionPerformed
+        //Creada, Asignada, Anulada, Finalizada
+        modta2 = new DefaultTableModel();
+     
+        String estado = selectestadifiltro.getSelectedItem().toString();
+        String sql="";
+        switch (estado) {
+            case "Asignada":
+                sql = "select * from ordenes where estado='Asignada'";
+                break;
+            case "Finalizada":
+                sql = "select * from ordenes where estado='Finalizada'";
+                break;
+            case "Creada":
+                sql = "select * from ordenes where estado='Creada'";
+                break;
+            case "Anulada":
+                sql = "select * from ordenes where estado='Anulada'";
+                break;
+        }
+            ora2.consultar(sql);
+        try {
+            
+            int numCol = ora2.getRstmdata().getColumnCount();
+            for (int i = 0; i < numCol; i++) {
+                modta2.addColumn(ora2.getRstmdata().getColumnLabel(i + 1));
+
+            }
+
+            while (ora2.getRst().next()) {
+                Object[] fila = new Object[numCol];
+                for (int i = 0; i < numCol; i++) {
+                    fila[i] = ora2.getRst().getObject(i + 1);
+                }
+
+                modta2.addRow(fila);
+                tablaorden.setModel(modta2);
+            }
+           
+        } catch (Exception e) {
+        }finally {
+
+            if (modta2.getRowCount()==0) {
+                JOptionPane.showMessageDialog(null," No se encontraron registros ");
+            }
+        
+        }
+
+       
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnfiltrarestadoActionPerformed
+
     // Metodos utilitarios 
      public void limpCampos() {
          txtArea1.setText("");
@@ -700,6 +774,7 @@ public class Orden extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevoRegistro2;
     private javax.swing.JButton btnasigequiposcliente;
     private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnfiltrarestado;
     private javax.swing.JButton btnguardar;
     private javax.swing.JComboBox comboestado;
     private javax.swing.JLabel estadoLabel;
@@ -725,6 +800,7 @@ public class Orden extends javax.swing.JFrame {
     private javax.swing.JLabel lbcod;
     private javax.swing.JLabel lbestado;
     private javax.swing.JLabel observacionesLabel;
+    private javax.swing.JComboBox selectestadifiltro;
     private com.toedter.calendar.JDateChooser selectorfecha;
     private javax.swing.JTable tablaorden;
     private javax.swing.JTextArea txtArea1;
