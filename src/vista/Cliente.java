@@ -357,7 +357,7 @@ public class Cliente extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // Metodo para insertar los datos en la tabla especialistas
         String dni,nombres,telfijo,telcel,email,ciudad ,direccion,nombrecont,sql;
-        
+       try{ 
         dni = dniField.getText();
         nombres = nombresField.getText();
         telfijo= telFijoField.getText();
@@ -368,6 +368,10 @@ public class Cliente extends javax.swing.JFrame {
         nombrecont= nombreContactoField.getText();
         sql="insert into clientes values(null,'"+dni+"','"+nombres+"','"+telfijo+"','"+telcel+"','"+email+"','"+ciudad+"','"+direccion+"','"+nombrecont+"')";
         ora2.regisData(sql);
+       }catch(Exception e){
+         JOptionPane.showMessageDialog(null," Debe llenar los campos correctamente ");
+           
+       }
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void btnNuevoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoRegistroActionPerformed
@@ -425,6 +429,13 @@ public class Cliente extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
+        }finally{
+            if(modta2.getRowCount()==0){
+                
+               JOptionPane.showMessageDialog(null," El registro no fue encontrado ");
+            }
+            
+            
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
