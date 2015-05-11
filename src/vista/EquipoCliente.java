@@ -75,7 +75,7 @@ public class EquipoCliente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         lbcodigo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Equipo Cliente Soluciones E&S.");
 
         tablaequipos.setModel(new javax.swing.table.DefaultTableModel(
@@ -98,12 +98,6 @@ public class EquipoCliente extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0)));
         jPanel2.setOpaque(false);
-
-        idOrdenesField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                idOrdenesFieldMouseClicked(evt);
-            }
-        });
 
         idOrdenesLabel.setText("Id Orden:");
 
@@ -417,13 +411,6 @@ public class EquipoCliente extends javax.swing.JFrame {
         fechaingresofield.setText(getFechatxt(d));
         
     }//GEN-LAST:event_fechaingresofieldMouseClicked
-
-    private void idOrdenesFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idOrdenesFieldMouseClicked
-       Orden ord = new Orden();
-       ord.setVisible(true);
-        
-        
-    }//GEN-LAST:event_idOrdenesFieldMouseClicked
 
     private void tablaequiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaequiposMouseClicked
        
