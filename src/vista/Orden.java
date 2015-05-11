@@ -487,10 +487,11 @@ public class Orden extends javax.swing.JFrame {
 
     private void btnasigequiposclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnasigequiposclienteActionPerformed
         // TODO add your handling code here:
-        try{
-        EquipoCliente.idOrdenesField.setText(lbcod.getText());
-        }catch(Exception e ){
-            JOptionPane.showMessageDialog(this," Debe seleccionar una orden y abrir ingreso equipos "," Error",JOptionPane.ERROR_MESSAGE);
+        try {
+
+            EquipoCliente.idOrdenesField.setText(lbcod.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, " Debe seleccionar una orden y abrir ingreso equipos ", " Error", JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_btnasigequiposclienteActionPerformed
