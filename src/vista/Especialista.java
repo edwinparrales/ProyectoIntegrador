@@ -71,6 +71,7 @@ public class Especialista extends javax.swing.JFrame {
         txtbusdni = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         lbcod = new javax.swing.JLabel();
+        btnasignarespaord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Especialistas Soluciones E&S");
@@ -159,6 +160,13 @@ public class Especialista extends javax.swing.JFrame {
 
         lbcod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btnasignarespaord.setText("Cargar asignacion ORD");
+        btnasignarespaord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnasignarespaordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,7 +175,7 @@ public class Especialista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnNuevoRegistro)
@@ -215,6 +223,8 @@ public class Especialista extends javax.swing.JFrame {
                     .addComponent(nombresField, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(numTarjetaprofesionalField, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                     .addComponent(lbcod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(btnasignarespaord)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -223,7 +233,7 @@ public class Especialista extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel9)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
@@ -233,10 +243,11 @@ public class Especialista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbcod, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dniLabel)
-                    .addComponent(txtdni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtdni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnasignarespaord))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombresLabel)
@@ -432,6 +443,17 @@ public class Especialista extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btneliminarActionPerformed
 
+    private void btnasignarespaordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnasignarespaordActionPerformed
+        try {
+            AsignacionOrden.codespeciafield.setText(txtdni.getText());
+            
+        } catch (Exception e) {
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnasignarespaordActionPerformed
+
     
     // Metodo para cargar los registros de la base de datos a la tabla
     
@@ -572,6 +594,7 @@ public class Especialista extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoRegistro;
+    private javax.swing.JButton btnasignarespaord;
     private javax.swing.JButton btneliminar;
     private javax.swing.JTextField cargoField;
     private javax.swing.JLabel cargoLabel;
