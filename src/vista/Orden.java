@@ -65,6 +65,9 @@ public class Orden extends javax.swing.JFrame {
         lbcod = new javax.swing.JLabel();
         selectorfecha = new com.toedter.calendar.JDateChooser();
         btnguardar = new javax.swing.JButton();
+        btnasigequiposcliente = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(51, 102, 255));
@@ -237,6 +240,17 @@ public class Orden extends javax.swing.JFrame {
             }
         });
 
+        btnasigequiposcliente.setText("Asignar Equipos");
+        btnasigequiposcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnasigequiposclienteActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Asignar a Especilaista");
+
+        jButton4.setText("Asignar Detalle Ord");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -244,7 +258,7 @@ public class Orden extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(245, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(173, 173, 173))
                     .addGroup(layout.createSequentialGroup()
@@ -272,12 +286,15 @@ public class Orden extends javax.swing.JFrame {
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtbuscodord, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(57, 57, 57)
+                                        .addGap(33, 33, 33)
                                         .addComponent(btnBuscar)
-                                        .addGap(49, 49, 49)))
-                                .addGap(73, 73, 73)))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -287,6 +304,10 @@ public class Orden extends javax.swing.JFrame {
                         .addComponent(lbcod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addGap(21, 21, 21))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnasigequiposcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,8 +327,17 @@ public class Orden extends javax.swing.JFrame {
                     .addComponent(txtbuscodord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(btnasigequiposcliente)
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton3)
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton4)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoRegistro2)
@@ -462,6 +492,13 @@ public class Orden extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnguardarActionPerformed
 
+    private void btnasigequiposclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnasigequiposclienteActionPerformed
+        // TODO add your handling code here:
+        EquipoCliente.idOrdenesField.setText(lbcod.getText());
+        
+        
+    }//GEN-LAST:event_btnasigequiposclienteActionPerformed
+
     // Metodos utilitarios 
      public void limpCampos() {
       txtArea1.setText("");
@@ -606,6 +643,7 @@ public class Orden extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoRegistro2;
+    private javax.swing.JButton btnasigequiposcliente;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnguardar;
     private javax.swing.JComboBox comboestado;
@@ -615,6 +653,8 @@ public class Orden extends javax.swing.JFrame {
     public static javax.swing.JTextField idClientesField;
     private javax.swing.JLabel idClientesLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

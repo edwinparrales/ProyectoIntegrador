@@ -32,6 +32,7 @@ public class EquipoCliente extends javax.swing.JFrame {
         initComponents();
          modta2 = new DefaultTableModel();
         ora2= new Oraclep();
+      
     }
 
     /**
@@ -88,9 +89,20 @@ public class EquipoCliente extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablaequipos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaequiposMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaequipos);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        idOrdenesField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                idOrdenesFieldMouseClicked(evt);
+            }
+        });
 
         idOrdenesLabel.setText("Id Orden:");
 
@@ -217,7 +229,12 @@ public class EquipoCliente extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pc.png"))); // NOI18N
 
-        btnbuscar.setText("Buscar");
+        btnbuscar.setText("Buscar Numero Orden:");
+        btnbuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Codigo Equipo:");
 
@@ -231,45 +248,41 @@ public class EquipoCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(34, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addComponent(jLabel6)
-                                                .addGap(49, 49, 49)
-                                                .addComponent(lbcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(44, 44, 44)
-                                        .addComponent(btnbuscar)))
-                                .addGap(33, 33, 33)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(buscarfield)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(btnNuevoRegistro)
-                                .addGap(43, 43, 43)
-                                .addComponent(saveButton)
-                                .addGap(41, 41, 41)
-                                .addComponent(btnModificar)
-                                .addGap(35, 35, 35)
-                                .addComponent(btneliminar)
-                                .addGap(37, 37, 37)
-                                .addComponent(btnActualizar)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(28, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel6)
+                                        .addGap(49, 49, 49)
+                                        .addComponent(lbcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(44, 44, 44)
+                                .addComponent(btnbuscar)))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buscarfield)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(btnNuevoRegistro)
+                        .addGap(43, 43, 43)
+                        .addComponent(saveButton)
+                        .addGap(41, 41, 41)
+                        .addComponent(btnModificar)
+                        .addGap(35, 35, 35)
+                        .addComponent(btneliminar)
+                        .addGap(37, 37, 37)
+                        .addComponent(btnActualizar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -277,9 +290,9 @@ public class EquipoCliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(buscarfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,7 +371,7 @@ public class EquipoCliente extends javax.swing.JFrame {
             MARCA= marcafield.getText();
             MODELO= modelofield.getText();
 
-            sql = "update equipos-clientes set ID_ORDENES='"+ID_ORDENES+"',CANTIDAD="+CANTIDAD+",FECAHA_INGRESO='"+FECAHA_INGRESO+"',OBSERVACIONES='"+OBSERVACIONES+"',NOMBRE='"+NOMBRE+"',MARCA='"+MARCA+"',MODELO='"+MODELO+"' WHERE COD_EQUIPO="+COD_EQUIPO;
+            sql = "update equipos_clientes set ID_ORDENES='"+ID_ORDENES+"',CANTIDAD="+CANTIDAD+",FECAHA_INGRESO='"+FECAHA_INGRESO+"',OBSERVACIONES='"+OBSERVACIONES+"',NOMBRE='"+NOMBRE+"',MARCA='"+MARCA+"',MODELO='"+MODELO+"' WHERE COD_EQUIPO="+COD_EQUIPO;
             ora2.regisData(sql);
 
         } catch (Exception e) {
@@ -381,7 +394,7 @@ public class EquipoCliente extends javax.swing.JFrame {
             MARCA= marcafield.getText();
             MODELO= modelofield.getText();
 
-            sql = "insert into equipos_clientes values(null,'"+ID_ORDENES+"',"+CANTIDAD+",'"+FECAHA_INGRESO+"',"+OBSERVACIONES+","+NOMBRE+","+MARCA+",'"+MODELO+"')";
+            sql = "insert into equipos_clientes values(null,'"+ID_ORDENES+"',"+CANTIDAD+",'"+FECAHA_INGRESO+"','"+OBSERVACIONES+"','"+NOMBRE+"','"+MARCA+"','"+MODELO+"')";
             ora2.regisData(sql);
 
         } catch (Exception e) {
@@ -402,6 +415,70 @@ public class EquipoCliente extends javax.swing.JFrame {
         fechaingresofield.setText(getFechatxt(d));
         
     }//GEN-LAST:event_fechaingresofieldMouseClicked
+
+    private void idOrdenesFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idOrdenesFieldMouseClicked
+       Orden ord = new Orden();
+       ord.setVisible(true);
+        
+        
+    }//GEN-LAST:event_idOrdenesFieldMouseClicked
+
+    private void tablaequiposMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaequiposMouseClicked
+       
+        String f;
+        int fila = tablaequipos.getSelectedRow();
+        lbcodigo.setText(tablaequipos.getModel().getValueAt(fila, 0).toString());
+        idOrdenesField.setText(tablaequipos.getModel().getValueAt(fila, 1).toString());
+        cantidadField.setText(tablaequipos.getModel().getValueAt(fila, 2).toString());
+         f=bdfecha(tablaequipos.getModel().getValueAt(fila, 3).toString());
+        fechaingresofield.setText(f);
+        observacionesarea.setText(tablaequipos.getModel().getValueAt(fila, 4).toString());
+        nombrefield.setText(tablaequipos.getModel().getValueAt(fila, 5).toString());
+        marcafield.setText(tablaequipos.getModel().getValueAt(fila, 6).toString());
+        modelofield.setText(tablaequipos.getModel().getValueAt(fila, 7).toString());
+        
+    }//GEN-LAST:event_tablaequiposMouseClicked
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        modta2 = new DefaultTableModel();
+        
+      String  codOrd = buscarfield.getText();
+            
+     
+        ora2.consultar("select * from equipos_clientes where ID_ORDENES='"+codOrd+"'" );
+
+        try {
+            int numCol = ora2.getRstmdata().getColumnCount();
+            for (int i = 0; i < numCol; i++) {
+                modta2.addColumn(ora2.getRstmdata().getColumnLabel(i + 1));
+
+            }
+
+            while (ora2.getRst().next()) {
+                Object[] fila = new Object[numCol];
+                for (int i = 0; i < numCol; i++) {
+                    fila[i] = ora2.getRst().getObject(i + 1);
+                }
+
+                modta2.addRow(fila);
+                tablaequipos.setModel(modta2);
+            }
+           
+        } catch (Exception e) {
+        }finally {
+
+            if (modta2.getRowCount()==0) {
+                JOptionPane.showMessageDialog(null," No se encontraron registros "+codOrd);
+            }
+        
+        }
+
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnbuscarActionPerformed
 
     
 
@@ -594,7 +671,7 @@ public class EquipoCliente extends javax.swing.JFrame {
     private javax.swing.JLabel fecahaIngresoLabel;
     private javax.swing.JTextField fechaingresofield;
     private javax.swing.JLabel idDispositivoLabel;
-    private javax.swing.JTextField idOrdenesField;
+    public static javax.swing.JTextField idOrdenesField;
     private javax.swing.JLabel idOrdenesLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -602,7 +679,7 @@ public class EquipoCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbcodigo;
