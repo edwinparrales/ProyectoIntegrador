@@ -38,10 +38,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="Inventarios">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Inventarios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InventariosActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuModesp">
               <Properties>
@@ -110,7 +113,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="191" pref="645" max="32767" attributes="0"/>
+              <EmptySpace min="191" pref="642" max="32767" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="58" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="99" max="-2" attributes="0"/>
@@ -351,6 +354,9 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="txtcantinsumos">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="txtprecioinsumo">
     </Component>

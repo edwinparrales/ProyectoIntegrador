@@ -8,6 +8,7 @@ package vista;
 import controlador.Oraclep;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.CallableStatement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,7 +36,7 @@ public class Inventarios extends javax.swing.JFrame {
         txtfecha.setEditable(false);
         soloNum(txtvalorsiniva);
         soloNum(txtporceniva);
-        soloNum(txtcantord);
+        soloNum(txtcantreq);
         soloNum(txtcantcompra);
     }
 
@@ -59,9 +60,9 @@ public class Inventarios extends javax.swing.JFrame {
         comboBuscar = new javax.swing.JComboBox();
         txtbuscar = new javax.swing.JTextField();
         btnfiltro = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btncargardetaord = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        txtcantord = new javax.swing.JTextField();
+        txtcantreq = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txtvaliva = new javax.swing.JTextField();
@@ -90,7 +91,7 @@ public class Inventarios extends javax.swing.JFrame {
         txtmod = new javax.swing.JTextField();
         selectorfecha = new com.toedter.calendar.JDateChooser();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnActualizar.setText("Refresh");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +157,12 @@ public class Inventarios extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cargar a Detalle Orden");
+        btncargardetaord.setText("Cargar a Detalle Orden");
+        btncargardetaord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncargardetaordActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Cantidad:");
 
@@ -363,9 +369,9 @@ public class Inventarios extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(38, 38, 38)
-                                .addComponent(txtcantord, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtcantreq, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(jButton2))
+                                .addComponent(btncargardetaord))
                             .addComponent(btnfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
@@ -383,9 +389,9 @@ public class Inventarios extends javax.swing.JFrame {
                     .addComponent(btnfiltro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btncargardetaord)
                     .addComponent(jLabel14)
-                    .addComponent(txtcantord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcantreq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -546,28 +552,28 @@ public class Inventarios extends javax.swing.JFrame {
 
     private void btnfiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfiltroActionPerformed
         modta2 = new DefaultTableModel();
-        String sql="";
+        String sql = "";
         String select = comboBuscar.getSelectedItem().toString();
-        
-      
-      try{ 
-        if (select.equalsIgnoreCase("Codigo")) {
-            
-            int cod=Integer.parseInt(txtbuscar.getText()) ;
-            sql=" select * from inventarios where COD_INV="+cod;
+
+        try {
+            if (select.equalsIgnoreCase("Codigo")) {
+
+                int cod = Integer.parseInt(txtbuscar.getText());
+                sql = " select * from inventarios where COD_INV=" + cod;
+            }
+            if (select.equalsIgnoreCase("Nombre")) {
+                String nom = txtbuscar.getText();
+                sql = " select * from inventarios where NOMBRE like'" + nom + "%'";
+            }
+            if (select.equalsIgnoreCase("Factura")) {
+                String fac = txtbuscar.getText();
+                sql = " select * from inventarios where NUM_FACTURA ='" + fac + "'";
+            }
+            ora2.consultar(sql);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, " Llenar los campos correctamente ");
         }
-        if (select.equalsIgnoreCase("Nombre")) {
-            String nom=txtbuscar.getText();
-             sql=" select * from inventarios where NOMBRE like'"+nom+"%'";
-        }if (select.equalsIgnoreCase("Factura")) {
-             String fac = txtbuscar.getText();
-             sql=" select * from inventarios where NUM_FACTURA ='"+fac+"'";
-        }
-        ora2.consultar(sql);
-      }catch(Exception e){
-         JOptionPane.showMessageDialog(null," Llenar los campos correctamente ");
-      }
-               
+
         try {
             int numCol = ora2.getRstmdata().getColumnCount();
             for (int i = 0; i < numCol; i++) {
@@ -584,18 +590,79 @@ public class Inventarios extends javax.swing.JFrame {
                 modta2.addRow(fila);
                 tablaInve.setModel(modta2);
             }
-           
-        } catch (Exception e) {
-        }finally {
 
-            if (modta2.getRowCount()==0) {
-                JOptionPane.showMessageDialog(null," No se encontraron registros ");
+        } catch (Exception e) {
+        } finally {
+
+            if (modta2.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, " No se encontraron registros ");
             }
-        
+
         }
 
-        
+
     }//GEN-LAST:event_btnfiltroActionPerformed
+
+    private void btncargardetaordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargardetaordActionPerformed
+        try {
+            int codinv = Integer.parseInt(txtcod.getText());
+            int cantexis = Integer.parseInt(txtcanstock.getText());
+            int cantreq = Integer.parseInt(txtcantreq.getText());
+            if (cantexis >= cantreq) {
+
+                try {
+
+                    CallableStatement cs = ora2.getCon().getConexion().prepareCall("call p_decrExiste(?,?)");
+                    cs.setInt(1, codinv);
+                    cs.setInt(2, cantreq);
+                    cs.execute();
+                    DetalleOrden.txtidinventa.setText(""+codinv);
+                    DetalleOrden.txtcantinsumos.setText(""+cantreq);
+
+                } catch (Exception e) {
+                }
+
+            } else {
+                if (cantexis > 0 && cantexis<cantreq) {
+
+                    int respuesta = JOptionPane.showConfirmDialog(null, " Solo quedan  " + cantexis + "unidades \n"
+                            + " Desea tomarlas ", "Tomar unidades ", JOptionPane.YES_NO_CANCEL_OPTION);
+                    switch (respuesta) {
+                        case JOptionPane.YES_OPTION:
+                               
+                            try {
+
+                                CallableStatement cs = ora2.getCon().getConexion().prepareCall("call p_decrExiste(?,?)");
+                                cs.setInt(1, codinv);
+                                cs.setInt(2, cantexis);
+                                cs.execute();
+                                DetalleOrden.txtidinventa.setText("" + codinv);
+                                DetalleOrden.txtcantinsumos.setText("" + cantexis);
+
+                            } catch (Exception e) {
+                            }
+
+                            break;
+                        case JOptionPane.NO_OPTION:
+
+                            break;
+                        case JOptionPane.CANCEL_OPTION:
+
+                            break;
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, " realizar pedido ");
+                     DetalleOrden.txtidorden.setText("" + codinv);
+                     DetalleOrden.txtcantinsumos.setText("" +0);
+                }
+            }
+
+        } catch (Exception e) {
+
+        }
+
+    }//GEN-LAST:event_btncargardetaordActionPerformed
 
     
     
@@ -793,10 +860,10 @@ public class Inventarios extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoRegistro;
+    private javax.swing.JButton btncargardetaord;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnfiltro;
     private javax.swing.JComboBox comboBuscar;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -820,7 +887,7 @@ public class Inventarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtbuscar;
     private javax.swing.JTextField txtcanstock;
     private javax.swing.JTextField txtcantcompra;
-    private javax.swing.JTextField txtcantord;
+    private javax.swing.JTextField txtcantreq;
     private javax.swing.JTextField txtcod;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtmarca;

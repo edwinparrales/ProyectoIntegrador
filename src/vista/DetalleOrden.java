@@ -84,7 +84,7 @@ public class DetalleOrden extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        Inventarios = new javax.swing.JMenuItem();
         menuModesp = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         Ordenes = new javax.swing.JMenuItem();
@@ -206,8 +206,13 @@ public class DetalleOrden extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem3.setText("Inventarios");
-        jMenu1.add(jMenuItem3);
+        Inventarios.setText("Inventarios");
+        Inventarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InventariosActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Inventarios);
 
         menuModesp.setText("Modulo Especialistas");
         menuModesp.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +252,7 @@ public class DetalleOrden extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(191, 645, Short.MAX_VALUE)
+                .addGap(191, 642, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -493,6 +498,14 @@ public class DetalleOrden extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menuModespActionPerformed
 
+    private void InventariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventariosActionPerformed
+       Inventarios inv = new Inventarios();
+       inv.setVisible(true);
+         
+        
+        
+    }//GEN-LAST:event_InventariosActionPerformed
+
        // metodos utilitarios
     
      public void refresh(){
@@ -679,6 +692,7 @@ public class DetalleOrden extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Inventarios;
     private javax.swing.JMenuItem Ordenes;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnModificar;
@@ -702,7 +716,6 @@ public class DetalleOrden extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -716,7 +729,7 @@ public class DetalleOrden extends javax.swing.JFrame {
     private javax.swing.JLabel precioServicoLabel;
     private javax.swing.JButton saveButton;
     private javax.swing.JTable tablagestion;
-    private javax.swing.JTextField txtcantinsumos;
+    public static javax.swing.JTextField txtcantinsumos;
     private javax.swing.JTextField txtcantservicios;
     private javax.swing.JTextField txtfecha;
     public static javax.swing.JTextField txtidinventa;
