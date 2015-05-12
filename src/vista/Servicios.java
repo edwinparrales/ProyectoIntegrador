@@ -52,7 +52,7 @@ public class Servicios extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnasigdetalleord = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnNuevoRegistro.setText("Nuevo");
         btnNuevoRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -321,7 +321,9 @@ public class Servicios extends javax.swing.JFrame {
 
     private void btnasigdetalleordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnasigdetalleordActionPerformed
         
-        
+     
+      DetalleOrden.txtidservi.setText(txtcodserv.getText());
+                
         
         
         

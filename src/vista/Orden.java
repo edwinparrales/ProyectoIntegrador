@@ -67,7 +67,7 @@ public class Orden extends javax.swing.JFrame {
         btnguardar = new javax.swing.JButton();
         btnasigequiposcliente = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btndetalleorden = new javax.swing.JButton();
         btnfiltrarestado = new javax.swing.JButton();
         selectestadifiltro = new javax.swing.JComboBox();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -261,7 +261,12 @@ public class Orden extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Asignar Detalle Ord");
+        btndetalleorden.setText("Asignar Detalle Ord");
+        btndetalleorden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndetalleordenActionPerformed(evt);
+            }
+        });
 
         btnfiltrarestado.setText("Filtrar");
         btnfiltrarestado.addActionListener(new java.awt.event.ActionListener() {
@@ -310,7 +315,7 @@ public class Orden extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btndetalleorden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnasigequiposcliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,7 +387,7 @@ public class Orden extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btndetalleorden, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoRegistro2)
@@ -627,6 +632,11 @@ public class Orden extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnfiltrarestadoActionPerformed
 
+    private void btndetalleordenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndetalleordenActionPerformed
+        DetalleOrden.txtidorden.setText(lbcod.getText());
+
+    }//GEN-LAST:event_btndetalleordenActionPerformed
+
     // Metodos utilitarios 
      public void limpCampos() {
          txtArea1.setText("");
@@ -773,6 +783,7 @@ public class Orden extends javax.swing.JFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoRegistro2;
     private javax.swing.JButton btnasigequiposcliente;
+    private javax.swing.JButton btndetalleorden;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnfiltrarestado;
     private javax.swing.JButton btnguardar;
@@ -784,7 +795,6 @@ public class Orden extends javax.swing.JFrame {
     private javax.swing.JLabel idClientesLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

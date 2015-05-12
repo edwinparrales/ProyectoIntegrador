@@ -38,22 +38,50 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inventarios"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuModesp">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modulo Especialistas"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuModespActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Edit"/>
+            <Property name="text" type="java.lang.String" value="Abrir"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="Ordenes">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jMenuItem2"/>
+                <Property name="text" type="java.lang.String" value="Ordenes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OrdenesActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Especialistas"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Imprimir"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Guardar"/>
+          </Properties>
         </Menu>
       </SubComponents>
     </Menu>
@@ -81,130 +109,185 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cantidadServiciosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="fechaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="observacionesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="cantidadInsumoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="precioInsumoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ivaInsumoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="precioServicoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ivaServiciosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="idInventariosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="idOrdenesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="idServiciosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="fechaField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="observacionesField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="idInventariosField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cantidadInsumoField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="precioInsumoField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ivaInsumoField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="precioServicoField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ivaServiciosField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cantidadServiciosField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="idServiciosField" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="idOrdenesField" min="-2" pref="378" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="490" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="191" pref="645" max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="58" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="99" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jDateChooser1" min="-2" pref="196" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="678" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="120" pref="120" max="-2" attributes="0"/>
+                              <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <Component id="btneliminar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cantidadServiciosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="fechaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cantidadInsumoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="precioInsumoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ivaInsumoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="precioServicoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ivaServiciosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="idInventariosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="idOrdenesLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="idServiciosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="precioInsumoLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="txtfecha" alignment="0" pref="378" max="32767" attributes="0"/>
+                                          <Component id="txtcantservicios" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtivaservicios" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtprecioservi" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtivainsumo" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtprecioinsumo" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtcantinsumos" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtidservi" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtidinventa" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtporcentiva" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtidorden" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Component id="btnNuevoRegistro" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="observacionesLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnActualizar" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" alignment="0" min="-2" pref="329" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="22" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" pref="127" max="-2" attributes="0"/>
-              <EmptySpace type="separate" pref="54" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idOrdenesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idOrdenesField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="idOrdenesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtidorden" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="idInventariosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtidinventa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="idServiciosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtidservi" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cantidadInsumoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtcantinsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="precioInsumoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtprecioinsumo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="precioInsumoLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtporcentiva" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ivaInsumoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtivainsumo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="precioServicoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtprecioservi" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ivaServiciosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtivaservicios" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="observacionesLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idInventariosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idInventariosField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idServiciosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idServiciosField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cantidadInsumoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cantidadInsumoField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="precioInsumoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="precioInsumoField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ivaInsumoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ivaInsumoField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="precioServicoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="precioServicoField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ivaServiciosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="ivaServiciosField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cantidadServiciosLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cantidadServiciosField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtcantservicios" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="fechaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fechaField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtfecha" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnNuevoRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnModificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btneliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="observacionesLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="observacionesField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="300" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="fechaField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="observacionesField">
+    <Component class="javax.swing.JTextField" name="txtfecha">
     </Component>
     <Component class="javax.swing.JLabel" name="idOrdenesLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Id Ordenes:"/>
+        <Property name="text" type="java.lang.String" value="Id  Orden:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="idInventariosLabel">
@@ -257,25 +340,29 @@
         <Property name="text" type="java.lang.String" value="Observaciones:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="idOrdenesField">
+    <Component class="javax.swing.JTextField" name="txtidinventa">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="idInventariosField">
+    <Component class="javax.swing.JTextField" name="txtidservi">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="idServiciosField">
+    <Component class="javax.swing.JTextField" name="txtcantinsumos">
     </Component>
-    <Component class="javax.swing.JTextField" name="cantidadInsumoField">
+    <Component class="javax.swing.JTextField" name="txtprecioinsumo">
     </Component>
-    <Component class="javax.swing.JTextField" name="precioInsumoField">
+    <Component class="javax.swing.JTextField" name="txtivainsumo">
     </Component>
-    <Component class="javax.swing.JTextField" name="ivaInsumoField">
+    <Component class="javax.swing.JTextField" name="txtprecioservi">
     </Component>
-    <Component class="javax.swing.JTextField" name="precioServicoField">
+    <Component class="javax.swing.JTextField" name="txtivaservicios">
     </Component>
-    <Component class="javax.swing.JTextField" name="ivaServiciosField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="cantidadServiciosField">
+    <Component class="javax.swing.JTextField" name="txtcantservicios">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cantidadServiciosFieldActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtcantserviciosActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -285,7 +372,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable2">
+        <Component class="javax.swing.JTable" name="tablagestion">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -301,8 +388,114 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="GESTION DE ORDENES DE SERVICIO"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnNuevoRegistro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nuevo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoRegistroActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="saveButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guardar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnModificar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modificar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btneliminar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneliminarActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnActualizar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Refresh"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
+      </AuxValues>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="precioInsumoLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Porcentaje iva:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtporcentiva">
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea1">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CODIGO:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtidorden">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

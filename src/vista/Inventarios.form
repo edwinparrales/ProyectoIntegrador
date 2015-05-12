@@ -86,7 +86,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -242,7 +242,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cargar a Orden"/>
+        <Property name="text" type="java.lang.String" value="Cargar a Detalle Orden"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">

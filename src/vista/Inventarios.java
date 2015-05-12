@@ -156,7 +156,7 @@ public class Inventarios extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cargar a Orden");
+        jButton2.setText("Cargar a Detalle Orden");
 
         jLabel14.setText("Cantidad:");
 
@@ -367,7 +367,7 @@ public class Inventarios extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(jButton2))
                             .addComponent(btnfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

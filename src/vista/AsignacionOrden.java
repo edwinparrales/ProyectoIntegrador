@@ -66,6 +66,7 @@ public class AsignacionOrden extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        menuordenes = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -213,6 +214,14 @@ public class AsignacionOrden extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
+
+        menuordenes.setText("Ordenes");
+        menuordenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuordenesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuordenes);
 
         jMenuBar1.add(jMenu1);
 
@@ -464,6 +473,11 @@ public class AsignacionOrden extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void menuordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuordenesActionPerformed
+        Orden ord = new Orden();
+        ord.setVisible(true);      
+    }//GEN-LAST:event_menuordenesActionPerformed
+
     // metodos utilitarios
     
      public void refresh(){
@@ -663,6 +677,7 @@ public class AsignacionOrden extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     public static javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuItem menuordenes;
     private javax.swing.JTextField observafield;
     private javax.swing.JButton saveButton;
     private javax.swing.JComboBox selectbuscar;
