@@ -6,22 +6,28 @@
 package vista;
 
 import controlador.Oraclep;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.CallableStatement;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Eparrales
  */
-public class AsignacionInsumos extends javax.swing.JFrame {
+public class InsumosDisponibles extends javax.swing.JFrame {
 
     DefaultTableModel modta2;
     Oraclep ora2;
-    public AsignacionInsumos() {
+    public InsumosDisponibles() {
         initComponents();
         modta2 = new DefaultTableModel();
         ora2= new Oraclep();
+        txtcantexis.setEditable(false);
+        txtcodinv.setEditable(false);
+        soloNum(txtcantreq);
         
     }
 
@@ -69,7 +75,9 @@ public class AsignacionInsumos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaasingi);
 
-        jLabel1.setText("ASIGNACION DE INSUMOS");
+        jLabel1.setFont(new java.awt.Font("Andalus", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setText("INSUMOS DISPONIBLES");
 
         comboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Codigo", "Nombre", "Factura" }));
 
@@ -307,7 +315,21 @@ public class AsignacionInsumos extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_tablaasingiMouseClicked
-
+     public void soloNum(JTextField tx) {
+        tx.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLetter(c)) {
+                    getToolkit().beep();
+                    e.consume();
+                }
+            }
+        });
+    }
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -325,20 +347,21 @@ public class AsignacionInsumos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AsignacionInsumos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsumosDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AsignacionInsumos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsumosDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AsignacionInsumos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsumosDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AsignacionInsumos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InsumosDisponibles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AsignacionInsumos().setVisible(true);
+                new InsumosDisponibles().setVisible(true);
             }
         });
     }

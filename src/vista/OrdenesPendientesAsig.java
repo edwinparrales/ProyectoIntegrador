@@ -97,14 +97,14 @@ public class OrdenesPendientesAsig extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(txtcodord, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(btnfiltrarestado, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(82, 82, 82))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 32, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1)
                 .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
@@ -113,7 +113,7 @@ public class OrdenesPendientesAsig extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                 .addGap(23, 23, 23)
                 .addComponent(btnfiltrarestado)
                 .addGap(17, 17, 17)
@@ -121,7 +121,7 @@ public class OrdenesPendientesAsig extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtcodord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(88, 88, 88))
         );
 
         pack();
@@ -162,9 +162,12 @@ public class OrdenesPendientesAsig extends javax.swing.JFrame {
     }//GEN-LAST:event_btnfiltrarestadoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+      try{
         AsignacionOrden.codordfield.setText(txtcodord.getText());
-
+      }catch(Exception e){
+          
+          JOptionPane.showMessageDialog(null," !Debe seleccionar una orden¡ ");
+      }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tablaordpendiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaordpendiMouseClicked

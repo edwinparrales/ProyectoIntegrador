@@ -36,7 +36,7 @@ public class Inventarios extends javax.swing.JFrame {
         txtfecha.setEditable(false);
         soloNum(txtvalorsiniva);
         soloNum(txtporceniva);
-        soloNum(txtcantreq);
+   
         soloNum(txtcantcompra);
     }
 
@@ -88,12 +88,9 @@ public class Inventarios extends javax.swing.JFrame {
         btneliminar = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
         btnNuevoRegistro = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        btncargardetaord = new javax.swing.JButton();
-        txtcantreq = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Modulo de inventarios SolucionesE&S");
 
         tablaInve.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,6 +110,9 @@ public class Inventarios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaInve);
 
+        jLabel1.setFont(new java.awt.Font("Andalus", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("INVENTARIOS");
 
         comboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Codigo", "Nombre", "Factura" }));
@@ -350,41 +350,6 @@ public class Inventarios extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cargar insumos a Gestion Ordenes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 51, 51))); // NOI18N
-
-        jLabel14.setText("Cantidad:");
-
-        btncargardetaord.setText("Cargar a Detalle Orden");
-        btncargardetaord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncargardetaordActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel14)
-                .addGap(38, 38, 38)
-                .addComponent(txtcantreq, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btncargardetaord)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btncargardetaord)
-                    .addComponent(jLabel14)
-                    .addComponent(txtcantreq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -402,10 +367,8 @@ public class Inventarios extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(234, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,8 +398,6 @@ public class Inventarios extends javax.swing.JFrame {
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnfiltro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
                 .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -642,67 +603,6 @@ public class Inventarios extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnfiltroActionPerformed
 
-    private void btncargardetaordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargardetaordActionPerformed
-        try {
-            int codinv = Integer.parseInt(txtcod.getText());
-            int cantexis = Integer.parseInt(txtcanstock.getText());
-            int cantreq = Integer.parseInt(txtcantreq.getText());
-            if (cantexis >= cantreq) {
-
-                try {
-
-                    CallableStatement cs = ora2.getCon().getConexion().prepareCall("call p_decrExiste(?,?)");
-                    cs.setInt(1, codinv);
-                    cs.setInt(2, cantreq);
-                    cs.execute();
-                    DetalleOrden.txtidinventa.setText(""+codinv);
-                    DetalleOrden.txtcantinsumos.setText(""+cantreq);
-
-                } catch (Exception e) {
-                }
-
-            } else {
-                if (cantexis > 0 && cantexis<cantreq) {
-
-                    int respuesta = JOptionPane.showConfirmDialog(null, " Solo quedan  " + cantexis + "unidades \n"
-                            + " Desea tomarlas ", "Tomar unidades ", JOptionPane.YES_NO_CANCEL_OPTION);
-                    switch (respuesta) {
-                        case JOptionPane.YES_OPTION:
-                               
-                            try {
-
-                                CallableStatement cs = ora2.getCon().getConexion().prepareCall("call p_decrExiste(?,?)");
-                                cs.setInt(1, codinv);
-                                cs.setInt(2, cantexis);
-                                cs.execute();
-                                DetalleOrden.txtidinventa.setText("" + codinv);
-                                DetalleOrden.txtcantinsumos.setText("" + cantexis);
-
-                            } catch (Exception e) {
-                            }
-
-                            break;
-                        case JOptionPane.NO_OPTION:
-
-                            break;
-                        case JOptionPane.CANCEL_OPTION:
-
-                            break;
-                    }
-
-                } else {
-                    JOptionPane.showMessageDialog(null, " realizar pedido ");
-                     DetalleOrden.txtidorden.setText("" + codinv);
-                     DetalleOrden.txtcantinsumos.setText("" +0);
-                }
-            }
-
-        } catch (Exception e) {
-
-        }
-
-    }//GEN-LAST:event_btncargardetaordActionPerformed
-
     
     
     
@@ -899,7 +799,6 @@ public class Inventarios extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoRegistro;
-    private javax.swing.JButton btncargardetaord;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnfiltro;
     private javax.swing.JComboBox comboBuscar;
@@ -908,7 +807,6 @@ public class Inventarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -920,7 +818,6 @@ public class Inventarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton saveButton;
     public static com.toedter.calendar.JDateChooser selectorfecha;
@@ -928,7 +825,6 @@ public class Inventarios extends javax.swing.JFrame {
     private javax.swing.JTextField txtbuscar;
     private javax.swing.JTextField txtcanstock;
     private javax.swing.JTextField txtcantcompra;
-    private javax.swing.JTextField txtcantreq;
     private javax.swing.JTextField txtcod;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtmarca;
