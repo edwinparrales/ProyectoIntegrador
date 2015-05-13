@@ -5,6 +5,8 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eparrales
@@ -57,7 +59,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
         btnfinalizarord = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtobservaciones = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -205,7 +207,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
                 .addComponent(btnNuevoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addComponent(btnModificar)
                 .addGap(27, 27, 27)
                 .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,9 +237,9 @@ public class DetalleInsumo extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), "OBSERVACIONES:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(0, 0, 204))); // NOI18N
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        txtobservaciones.setColumns(20);
+        txtobservaciones.setRows(5);
+        jScrollPane2.setViewportView(txtobservaciones);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -316,33 +318,25 @@ public class DetalleInsumo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        String ID_ORDENES, FECHA, OBSERVACIONES, sql;
-        int COD_DETALLE, ID_INVENTARIOS, ID_SERVICIOS, CANTIDAD_INSUMO, CANTIDAD_SERVICIOS;
-        double PRECIO_INSUMO_SINIVA, IVA_INSUMO, PRECIO_SERVICO, IVA_SERVICIOS;
-        ID_INVENTARIOS = Integer.parseInt(txtidinventa.getText());
-        //        try {
+        String ID_ORDENES, OBSERVACIONES, sql, FECHA;
+        int COD_DETALLE, CANTIDAD_INSUMO, ID_INVENTARIOS;
+        double IVA_INSUMO, PRECIO_INSUMO_SINIVA;
+        try {
 
-            CANTIDAD_INSUMO = Integer.parseInt(txtcantinsumos.getText());
-            PRECIO_INSUMO_SINIVA = Double.parseDouble(txtprecioinsumo.getText());
-            IVA_INSUMO = getIva(PRECIO_INSUMO_SINIVA, Integer.parseInt(txtporcentivaIns.getText()));
-
-            ID_ORDENES = txtidorden.getText();
-
-            ID_SERVICIOS = Integer.parseInt(txtidservi.getText());
-
-            PRECIO_SERVICO = Double.parseDouble(txtprecioservi.getText());
-            IVA_SERVICIOS = getIva(PRECIO_SERVICO, Integer.parseInt(txtporcentivaser.getText()));
-            CANTIDAD_SERVICIOS = Integer.parseInt(txtcantservicios.getText());
+            ID_ORDENES = txtcodOrden.getText();
+            ID_INVENTARIOS = Integer.parseInt(txtcodinvent.getText());
+            CANTIDAD_INSUMO = Integer.parseInt(txtcantidad.getText());
+            PRECIO_INSUMO_SINIVA = Double.parseDouble(txtprecioIsumo.getText());
+            IVA_INSUMO = Double.parseDouble(txtivainsumo.getText());
             FECHA = txtfecha.getText();
-            OBSERVACIONES = txtobserva.getText();
+            OBSERVACIONES = txtobservaciones.getText();
+            
+            sql="insert into detalles_insumos values(null,'"+ID_ORDENES+"',"+ID_INVENTARIOS+","+CANTIDAD_INSUMO+","+PRECIO_INSUMO_SINIVA+"'"+IVA_INSUMO +",'"+FECHA+"','"+OBSERVACIONES+"')";
 
-            sql = "insert into detalles_ordenes values(null,'" + ID_ORDENES + "'," + ID_INVENTARIOS + "," + ID_SERVICIOS + "," + CANTIDAD_INSUMO + "," + PRECIO_INSUMO_SINIVA + "," + IVA_INSUMO + ","+PRECIO_SERVICO+","+IVA_SERVICIOS+","+CANTIDAD_SERVICIOS+",'"+FECHA+"','"+OBSERVACIONES+"')";
-
-            ora2.regisData(sql);
-
-            //        } catch (Exception e) {
-            //            JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
-            //        }
+        } catch (Exception e) {
+               JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void btnNuevoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoRegistroActionPerformed
@@ -465,17 +459,12 @@ public class DetalleInsumo extends javax.swing.JFrame {
         txtcodinvent.setText("");
         txtcodOrden.setText("");
         txtcodinvent.setText("");
-        txtmod.setText("");
-        
-        txtvalorsiniva.setText("");
-        txtvaliva.setText("");
+        txtcantidad.setText("");
+        txtprecioIsumo.setText("");
+        txtivainsumo.setText("");
+        txtfecha.setText("");
+        txtobservaciones.setText("");
        
-        txtprovee.setText("");
-        txtbuscar.setText("");
-        txtcanstock.setText("");
-        txtbuscar.setText("");
-      
-        txtporceniva.setText("");
         
     }
     
@@ -642,7 +631,6 @@ public class DetalleInsumo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField txtcantidad;
     private javax.swing.JTextField txtcodOrden;
@@ -650,6 +638,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
     private javax.swing.JTextField txtcodinvent;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtivainsumo;
+    private javax.swing.JTextArea txtobservaciones;
     private javax.swing.JTextField txtporcentiva;
     private javax.swing.JTextField txtprecioIsumo;
     // End of variables declaration//GEN-END:variables
