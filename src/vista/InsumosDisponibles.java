@@ -260,8 +260,8 @@ public class InsumosDisponibles extends javax.swing.JFrame {
                     cs.setInt(1, codinv);
                     cs.setInt(2, cantreq);
                     cs.execute();
-                    DetalleOrden.txtidinventa.setText(""+codinv);
-                    DetalleOrden.txtcantinsumos.setText(""+cantreq);
+                    DetalleInsumo.txtcodinvent.setText(""+codinv);
+                    DetalleInsumo.txtcantidad.setText(""+cantreq);
 
                 } catch (Exception e) {
                 }
@@ -280,8 +280,8 @@ public class InsumosDisponibles extends javax.swing.JFrame {
                             cs.setInt(1, codinv);
                             cs.setInt(2, cantexis);
                             cs.execute();
-                            DetalleOrden.txtidinventa.setText("" + codinv);
-                            DetalleOrden.txtcantinsumos.setText("" + cantexis);
+                            DetalleInsumo.txtcodinvent.setText(""+codinv);
+                            DetalleInsumo.txtcantidad.setText("" + cantexis);
 
                         } catch (Exception e) {
                         }
@@ -297,8 +297,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
 
                 } else {
                     JOptionPane.showMessageDialog(null, " Solicitar  pedido del insumo ");
-                    DetalleOrden.txtidorden.setText("" + codinv);
-                    DetalleOrden.txtcantinsumos.setText("" +0);
+                   
                 }
             }
 

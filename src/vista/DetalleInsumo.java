@@ -658,7 +658,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -666,14 +666,14 @@ public class DetalleInsumo extends javax.swing.JFrame {
     private javax.swing.JButton saveButton;
     private com.toedter.calendar.JDateChooser selectorfecha;
     private javax.swing.JTable tabladeinv;
-    private javax.swing.JTextField txtcantidad;
-    private javax.swing.JTextField txtcodOrden;
+    public static javax.swing.JTextField txtcantidad;
+    public static javax.swing.JTextField txtcodOrden;
     private javax.swing.JTextField txtcoddetalleinsumo;
-    private javax.swing.JTextField txtcodinvent;
+    public static javax.swing.JTextField txtcodinvent;
     private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtivainsumo;
     private javax.swing.JTextArea txtobservaciones;
     private javax.swing.JTextField txtporcentiva;
-    private javax.swing.JTextField txtprecioIsumo;
+    public static javax.swing.JTextField txtprecioIsumo;
     // End of variables declaration//GEN-END:variables
 }
