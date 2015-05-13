@@ -182,6 +182,7 @@ public class EquipoCliente extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        jLabel1.setFont(new java.awt.Font("Andalus", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("EQUIPOS CLIENTES");
 

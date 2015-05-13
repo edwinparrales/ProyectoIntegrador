@@ -89,6 +89,7 @@ public class DetalleOrden extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         Ordenes = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
 
@@ -206,7 +207,7 @@ public class DetalleOrden extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        Inventarios.setText("Inventarios");
+        Inventarios.setText("Asignacion Insumos");
         Inventarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InventariosActionPerformed(evt);
@@ -236,6 +237,9 @@ public class DetalleOrden extends javax.swing.JFrame {
 
         jMenuItem4.setText("Especialistas");
         jMenu2.add(jMenuItem4);
+
+        jMenuItem2.setText("Inventarios");
+        jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
 
@@ -499,8 +503,8 @@ public class DetalleOrden extends javax.swing.JFrame {
     }//GEN-LAST:event_menuModespActionPerformed
 
     private void InventariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventariosActionPerformed
-       Inventarios inv = new Inventarios();
-       inv.setVisible(true);
+       AsignacionInsumos asi = new AsignacionInsumos();
+       asi.setVisible(true);
          
         
         
@@ -716,6 +720,7 @@ public class DetalleOrden extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

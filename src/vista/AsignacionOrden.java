@@ -215,7 +215,7 @@ public class AsignacionOrden extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        menuordenes.setText("Ordenes");
+        menuordenes.setText("Ordenes Pendientes");
         menuordenes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuordenesActionPerformed(evt);
@@ -474,8 +474,8 @@ public class AsignacionOrden extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void menuordenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuordenesActionPerformed
-        Orden ord = new Orden();
-        ord.setVisible(true);      
+        OrdenesPendientesAsig ordp = new OrdenesPendientesAsig();
+        ordp.setVisible(true);      
     }//GEN-LAST:event_menuordenesActionPerformed
 
     // metodos utilitarios
