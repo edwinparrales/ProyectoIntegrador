@@ -29,7 +29,7 @@ public class DetalleOrden extends javax.swing.JFrame {
         initComponents();
         modta2 = new DefaultTableModel();
         ora2= new Oraclep();
-        txtidinventa.setEditable(false);
+//        txtidinventa.setEditable(false);
         txtidservi.setEditable(false);
         txtidorden.setEditable(false);
         txtfecha.setEditable(false);
@@ -99,6 +99,7 @@ public class DetalleOrden extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         lbcoddetalleord = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnfinalizarord = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -341,15 +342,15 @@ public class DetalleOrden extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnNuevoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnModificar)
                 .addGap(18, 18, 18)
                 .addComponent(btneliminar)
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,9 +360,9 @@ public class DetalleOrden extends javax.swing.JFrame {
                     .addComponent(btnNuevoRegistro)
                     .addComponent(saveButton)
                     .addComponent(btnModificar)
-                    .addComponent(btneliminar)
-                    .addComponent(btnActualizar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnActualizar)
+                    .addComponent(btneliminar))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         lbcoddetalleord.setFont(new java.awt.Font("Andalus", 1, 18)); // NOI18N
@@ -390,6 +391,13 @@ public class DetalleOrden extends javax.swing.JFrame {
                     .addComponent(lbcoddetalleord, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        btnfinalizarord.setText("Finalizar la orden");
+        btnfinalizarord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfinalizarordActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Menu");
 
@@ -450,29 +458,34 @@ public class DetalleOrden extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(249, 249, 249)
                         .addComponent(jLabel1)
                         .addGap(149, 149, 149)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(13, 13, 13)
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(170, 170, 170)
+                                        .addComponent(btnfinalizarord, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -489,13 +502,14 @@ public class DetalleOrden extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(60, 60, 60))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(48, 48, 48)
+                        .addComponent(btnfinalizarord, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(60, 60, 60))
         );
 
         pack();
@@ -512,7 +526,8 @@ public class DetalleOrden extends javax.swing.JFrame {
 
     private void OrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrdenesActionPerformed
       
-       
+       Orden ord = new Orden();
+       ord.setVisible(true);
         
         
     }//GEN-LAST:event_OrdenesActionPerformed
@@ -528,16 +543,17 @@ public class DetalleOrden extends javax.swing.JFrame {
         String ID_ORDENES, FECHA, OBSERVACIONES, sql;
         int COD_DETALLE, ID_INVENTARIOS, ID_SERVICIOS, CANTIDAD_INSUMO, CANTIDAD_SERVICIOS;
         double PRECIO_INSUMO_SINIVA, IVA_INSUMO, PRECIO_SERVICO, IVA_SERVICIOS;
-
-        try {
-
-            ID_ORDENES = txtidorden.getText();
-            ID_INVENTARIOS = Integer.parseInt(txtidinventa.getText());
-            ID_SERVICIOS = Integer.parseInt(txtidservi.getText());
+         ID_INVENTARIOS = Integer.parseInt(txtidinventa.getText());
+//        try {
+           
             CANTIDAD_INSUMO = Integer.parseInt(txtcantinsumos.getText());
             PRECIO_INSUMO_SINIVA = Double.parseDouble(txtprecioinsumo.getText());
-
             IVA_INSUMO = getIva(PRECIO_INSUMO_SINIVA, Integer.parseInt(txtporcentivaIns.getText()));
+
+            ID_ORDENES = txtidorden.getText();
+
+            ID_SERVICIOS = Integer.parseInt(txtidservi.getText());
+
             PRECIO_SERVICO = Double.parseDouble(txtprecioservi.getText());
             IVA_SERVICIOS = getIva(PRECIO_SERVICO, Integer.parseInt(txtporcentivaser.getText()));
             CANTIDAD_SERVICIOS = Integer.parseInt(txtcantservicios.getText());
@@ -545,11 +561,12 @@ public class DetalleOrden extends javax.swing.JFrame {
             OBSERVACIONES = txtobserva.getText();
 
             sql = "insert into detalles_ordenes values(null,'" + ID_ORDENES + "'," + ID_INVENTARIOS + "," + ID_SERVICIOS + "," + CANTIDAD_INSUMO + "," + PRECIO_INSUMO_SINIVA + "," + IVA_INSUMO + ","+PRECIO_SERVICO+","+IVA_SERVICIOS+","+CANTIDAD_SERVICIOS+",'"+FECHA+"','"+OBSERVACIONES+"')";
+            
             ora2.regisData(sql);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
-        }
+           
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
+//        }
 
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -585,6 +602,7 @@ public class DetalleOrden extends javax.swing.JFrame {
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         int cod = Integer.parseInt(lbcoddetalleord.getText());
+        String idord=txtidorden.getText();
         String sql;
         int respuesta = JOptionPane.showConfirmDialog(null, " ¿Esta seguro que desea elminiar el registro? " + cod, "Eliminar Registro", JOptionPane.YES_NO_CANCEL_OPTION);
         switch (respuesta) {
@@ -604,7 +622,8 @@ public class DetalleOrden extends javax.swing.JFrame {
             try {
                 sql = "delete detalles_ordenes where  COD_DETALLE="+cod;
                 ora2.regisData(sql);
-
+                sql=" Update ordenes set estado='Anulada' where COD_ORDENES='"+idord+"'";
+                ora2.regisData(sql);
             } catch (Exception e) {
             }
 
@@ -673,6 +692,31 @@ public class DetalleOrden extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtfechaMouseClicked
 
+    private void btnfinalizarordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinalizarordActionPerformed
+        String sql;
+        String idord=txtidorden.getText();
+        
+        
+       
+        int respuesta = JOptionPane.showConfirmDialog(null, " ¿ Esta seguro que desea finalizar la orden ? " +idord, "Finalizar orden", JOptionPane.YES_NO_CANCEL_OPTION);
+        switch (respuesta) {
+            case JOptionPane.YES_OPTION:
+             sql=" Update ordenes set estado='Finalizada' where COD_ORDENES='"+idord+"'";
+            ora2.regisData(sql);
+                
+                
+            break;
+            case JOptionPane.NO_OPTION:
+
+            break;
+            case JOptionPane.CANCEL_OPTION:
+
+            break;
+        }
+        
+        
+    }//GEN-LAST:event_btnfinalizarordActionPerformed
+
        // metodos utilitarios
     
      public void refresh(){
@@ -711,7 +755,7 @@ public class DetalleOrden extends javax.swing.JFrame {
         txtivainsumo.setText("");
         txtprecioservi.setText("");
         txtivaservicios.setText("");
-
+        txtporcentivaIns.setText("");
         txtporcentivaser.setText("");
         txtcantservicios.setText("");
 
@@ -884,6 +928,7 @@ public class DetalleOrden extends javax.swing.JFrame {
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoRegistro;
     private javax.swing.JButton btneliminar;
+    private javax.swing.JButton btnfinalizarord;
     private javax.swing.JLabel cantidadInsumoLabel;
     private javax.swing.JLabel cantidadServiciosLabel;
     private javax.swing.JLabel fechaLabel;
