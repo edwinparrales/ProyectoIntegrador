@@ -14,7 +14,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import static vista.Inventarios.selectorfecha;
+
 import static vista.Inventarios.txtprovee;
 
 /**

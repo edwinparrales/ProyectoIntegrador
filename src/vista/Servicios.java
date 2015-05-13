@@ -322,7 +322,7 @@ public class Servicios extends javax.swing.JFrame {
     private void btnasigdetalleordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnasigdetalleordActionPerformed
         
      
-      DetalleOrden.txtidservi.setText(txtcodserv.getText());
+      DetalleServicio.txtcodservicio.setText(txtcodserv.getText());
                 
         
         

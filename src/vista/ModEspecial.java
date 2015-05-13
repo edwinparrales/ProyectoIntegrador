@@ -199,9 +199,11 @@ public class ModEspecial extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        
-       DetalleOrden.txtidorden.setText(txtcodorden.getText());
-        
+        try {
+            DetalleServicio.txtcodorden.setText(txtcodorden.getText());
+        } catch (Exception e) {
+
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     
