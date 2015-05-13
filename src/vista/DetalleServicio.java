@@ -623,7 +623,7 @@ public class DetalleServicio extends javax.swing.JFrame {
     public double getIva(double val) {
 
         try {
-            double pi = Double.parseDouble(txtporiva.getText());
+         
             return val * (Double.parseDouble(txtporiva.getText()) / 100);
 
         } catch (Exception e) {

@@ -5,7 +5,15 @@
  */
 package vista;
 
+import controlador.Oraclep;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,11 +21,16 @@ import javax.swing.JOptionPane;
  */
 public class DetalleInsumo extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DetalleInsumo
-     */
+        DefaultTableModel modta2;
+    Oraclep ora2;
     public DetalleInsumo() {
         initComponents();
+        
+        modta2 = new DefaultTableModel();
+        ora2= new Oraclep();
+        
+        
+        
     }
 
     /**
@@ -30,7 +43,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabladeinv = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txtcodOrden = new javax.swing.JTextField();
@@ -49,7 +62,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
         txtfecha = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtporcentiva = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        selectorfecha = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         btnActualizar = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
@@ -63,7 +76,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabladeinv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -74,7 +87,12 @@ public class DetalleInsumo extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tabladeinv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabladeinvMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tabladeinv);
 
         jLabel1.setText("DETALLE DE INSUMOS ASIGNADOS A ORDENES ");
 
@@ -281,7 +299,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
                                 .addGap(33, 33, 33)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)))
                 .addGap(44, 44, 44))
         );
@@ -293,7 +311,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -322,7 +340,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
         int COD_DETALLE, CANTIDAD_INSUMO, ID_INVENTARIOS;
         double IVA_INSUMO, PRECIO_INSUMO_SINIVA;
         try {
-
+            COD_DETALLE= Integer.parseInt(txtcoddetalleinsumo.getText());
             ID_ORDENES = txtcodOrden.getText();
             ID_INVENTARIOS = Integer.parseInt(txtcodinvent.getText());
             CANTIDAD_INSUMO = Integer.parseInt(txtcantidad.getText());
@@ -331,7 +349,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
             FECHA = txtfecha.getText();
             OBSERVACIONES = txtobservaciones.getText();
             
-            sql="insert into detalles_insumos values(null,'"+ID_ORDENES+"',"+ID_INVENTARIOS+","+CANTIDAD_INSUMO+","+PRECIO_INSUMO_SINIVA+"'"+IVA_INSUMO +",'"+FECHA+"','"+OBSERVACIONES+"')";
+            sql="insert into detalles_insumos values(null,'"+ID_ORDENES+"',"+ID_INVENTARIOS+","+CANTIDAD_INSUMO+","+PRECIO_INSUMO_SINIVA+",IVA_INSUMO="+IVA_INSUMO+",FECHA='"+FECHA+"',OBSERVACIONES='"+OBSERVACIONES+"' where COD_DETALLE="+COD_DETALLE;
 
         } catch (Exception e) {
                JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
@@ -346,42 +364,35 @@ public class DetalleInsumo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoRegistroActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        String ID_ORDENES, FECHA, OBSERVACIONES, sql;
-        int COD_DETALLE, ID_INVENTARIOS, ID_SERVICIOS, CANTIDAD_INSUMO, CANTIDAD_SERVICIOS;
-        double PRECIO_INSUMO_SINIVA, IVA_INSUMO, PRECIO_SERVICO, IVA_SERVICIOS;
-
+         String ID_ORDENES, OBSERVACIONES, sql, FECHA;
+        int COD_DETALLE, CANTIDAD_INSUMO, ID_INVENTARIOS;
+        double IVA_INSUMO, PRECIO_INSUMO_SINIVA;
         try {
-            COD_DETALLE= Integer.parseInt(lbcoddetalleord.getText());
-            ID_ORDENES = txtidorden.getText();
-            ID_INVENTARIOS = Integer.parseInt(txtidinventa.getText());
-            ID_SERVICIOS = Integer.parseInt(txtidservi.getText());
-            CANTIDAD_INSUMO = Integer.parseInt(txtcantinsumos.getText());
-            PRECIO_INSUMO_SINIVA = Double.parseDouble(txtprecioinsumo.getText());
 
-            IVA_INSUMO = getIva(PRECIO_INSUMO_SINIVA, Integer.parseInt(txtporcentivaIns.getText()));
-            PRECIO_SERVICO = Double.parseDouble(txtprecioservi.getText());
-            IVA_SERVICIOS = getIva(PRECIO_SERVICO, Integer.parseInt(txtporcentivaser.getText()));
-            CANTIDAD_SERVICIOS = Integer.parseInt(txtcantservicios.getText());
+            ID_ORDENES = txtcodOrden.getText();
+            ID_INVENTARIOS = Integer.parseInt(txtcodinvent.getText());
+            CANTIDAD_INSUMO = Integer.parseInt(txtcantidad.getText());
+            PRECIO_INSUMO_SINIVA = Double.parseDouble(txtprecioIsumo.getText());
+            IVA_INSUMO = Double.parseDouble(txtivainsumo.getText());
             FECHA = txtfecha.getText();
-            OBSERVACIONES = txtobserva.getText();
-
-            sql = "update  detalles_ordenes set  ID_ORDENES='" + ID_ORDENES + "',ID_INVENTARIOS =" + ID_INVENTARIOS + ",ID_SERVICIOS=" + ID_SERVICIOS + ",CANTIDAD_INSUMO=" + CANTIDAD_INSUMO + ",PRECIO_INSUMO_SINIVA=" + PRECIO_INSUMO_SINIVA + ",IVA_INSUMO=" + IVA_INSUMO + ",PRECIO_SERVICO="+PRECIO_SERVICO+",IVA_SERVICIOS="+IVA_SERVICIOS+",CANTIDAD_SERVICIOS="+CANTIDAD_SERVICIOS+",FECHA='"+FECHA+"',OBSERVACIONES='"+OBSERVACIONES+"' where COD_DETALLE="+COD_DETALLE;
-            ora2.regisData(sql);
+            OBSERVACIONES = txtobservaciones.getText();
+            
+            sql="update detalles_insumos set ID_ORDENES='"+ID_ORDENES+"',ID_INVENTARIOS="+ID_INVENTARIOS+",CANTIDAD_INSUMO="+CANTIDAD_INSUMO+",PRECIO_INSUMO_SINIVA="+PRECIO_INSUMO_SINIVA+"'"+IVA_INSUMO +",'"+FECHA+"','"+OBSERVACIONES+"')";
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
+               JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        int cod = Integer.parseInt(lbcoddetalleord.getText());
-        String idord=txtidorden.getText();
+        int cod = Integer.parseInt(txtcoddetalleinsumo.getText());
+        String idord=txtcodOrden.getText();
         String sql;
         int respuesta = JOptionPane.showConfirmDialog(null, " ¿Esta seguro que desea elminiar el registro? " + cod, "Eliminar Registro", JOptionPane.YES_NO_CANCEL_OPTION);
         switch (respuesta) {
             case JOptionPane.YES_OPTION:
-            System.out.println("" + respuesta);
+            
             break;
             case JOptionPane.NO_OPTION:
 
@@ -394,9 +405,9 @@ public class DetalleInsumo extends javax.swing.JFrame {
         if (respuesta == 0) {
 
             try {
-                sql = "delete detalles_ordenes where  COD_DETALLE="+cod;
+                sql = "delete detalles_insumos where  COD_DETALLE="+cod;
                 ora2.regisData(sql);
-                sql=" Update ordenes set estado='Anulada' where COD_ORDENES='"+idord+"'";
+                sql=" Update ordenes set estado='Creada' where COD_ORDENES='"+idord+"'";
                 ora2.regisData(sql);
             } catch (Exception e) {
             }
@@ -408,7 +419,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
 
     private void btnfinalizarordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinalizarordActionPerformed
         String sql;
-        String idord=txtidorden.getText();
+        String idord=txtcodOrden.getText();
 
         int respuesta = JOptionPane.showConfirmDialog(null, " ¿ Esta seguro que desea finalizar la orden ? " +idord, "Finalizar orden", JOptionPane.YES_NO_CANCEL_OPTION);
         switch (respuesta) {
@@ -427,11 +438,34 @@ public class DetalleInsumo extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnfinalizarordActionPerformed
 
+    private void tabladeinvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabladeinvMouseClicked
+          double valuni,valiva,pi;
+         
+  
+        int fila = tabladeinv.getSelectedRow();
+        
+           
+        txtcodinvent.setText(tabladeinv.getModel().getValueAt(fila, 0).toString());
+        txtcodOrden.setText(tabladeinv.getModel().getValueAt(fila, 1).toString());
+        txtcodinvent.setText(tabladeinv.getModel().getValueAt(fila, 2).toString());
+        txtcantidad.setText(tabladeinv.getModel().getValueAt(fila, 3).toString());
+        txtprecioIsumo.setText(tabladeinv.getModel().getValueAt(fila, 4).toString());
+        txtivainsumo.setText(tabladeinv.getModel().getValueAt(fila, 5).toString());
+        txtfecha.setText(bdfecha(tabladeinv.getModel().getValueAt(fila, 6).toString()));
+        txtobservaciones.setText(tabladeinv.getModel().getValueAt(fila, 7).toString());
+         valuni=Double.parseDouble(tabladeinv.getModel().getValueAt(fila, 4).toString());
+          valiva=  Double.parseDouble(tabladeinv.getModel().getValueAt(fila, 5).toString());    
+        pi=  pi= (valiva/valuni)*100;
+        txtporcentiva.setText(""+pi);
+        
+        
+    }//GEN-LAST:event_tabladeinvMouseClicked
+
     //Metodos utilitarios
     
      public void refresh(){
           modta2= new DefaultTableModel();
-          String sql="select * from inventarios";
+          String sql="select * from detalles_insumos";
           ora2.consultar(sql);
            
          try {
@@ -448,7 +482,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
                  }
 
                  modta2.addRow(fila);
-                 tablaInve.setModel(modta2);
+                 tabladeinv.setModel(modta2);
              }
 
          } catch (Exception e) {
@@ -504,8 +538,8 @@ public class DetalleInsumo extends javax.swing.JFrame {
     public double getIva(double val){
        
         try {
-              double pi= Double.parseDouble(txtporceniva.getText());
-              return val *(Double.parseDouble(txtporceniva.getText())/100);
+              double pi= Double.parseDouble(txtporcentiva.getText());
+              return  (val*(pi/100));
 
         } catch (Exception e) {
             
@@ -615,7 +649,6 @@ public class DetalleInsumo extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevoRegistro;
     private javax.swing.JButton btneliminar;
     private javax.swing.JButton btnfinalizarord;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -630,8 +663,9 @@ public class DetalleInsumo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton saveButton;
+    private com.toedter.calendar.JDateChooser selectorfecha;
+    private javax.swing.JTable tabladeinv;
     private javax.swing.JTextField txtcantidad;
     private javax.swing.JTextField txtcodOrden;
     private javax.swing.JTextField txtcoddetalleinsumo;
