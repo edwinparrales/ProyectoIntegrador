@@ -22,6 +22,8 @@ public class Servicios extends javax.swing.JFrame {
         initComponents();
          modta2 = new DefaultTableModel();
         ora2= new Oraclep();
+        txtcateg.setEditable(false);
+        txtcodserv.setEditable(false);
     }
 
     /**
@@ -47,6 +49,7 @@ public class Servicios extends javax.swing.JFrame {
         txtdesc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtcateg = new javax.swing.JTextField();
+        selectorCatego = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaserv = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
@@ -99,6 +102,8 @@ public class Servicios extends javax.swing.JFrame {
 
         jLabel4.setText("Categoria:");
 
+        selectorCatego.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Software", "Hardware", "Redes", "Electronica" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -106,21 +111,19 @@ public class Servicios extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtcodserv)
+                    .addComponent(txtnomb, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtdesc)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtcodserv, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtnomb)
-                            .addComponent(txtcateg, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtdesc, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addComponent(txtcateg, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(selectorCatego, 0, 139, Short.MAX_VALUE)))
                 .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,7 +144,8 @@ public class Servicios extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtcateg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcateg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectorCatego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -163,6 +167,9 @@ public class Servicios extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaserv);
 
+        jLabel5.setFont(new java.awt.Font("Tempus Sans ITC", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("SERVICIOS");
 
         btnasigdetalleord.setText("Asignar a Detalle orden");
@@ -177,56 +184,55 @@ public class Servicios extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnNuevoRegistro)
-                                .addGap(512, 512, 512))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(saveButton)
-                                .addGap(60, 60, 60)
-                                .addComponent(btnModificar)
-                                .addGap(51, 51, 51)
-                                .addComponent(btneliminar)
-                                .addGap(68, 68, 68)
-                                .addComponent(btnActualizar))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnasigdetalleord)))
+                        .addComponent(btnNuevoRegistro)
+                        .addGap(512, 512, 512))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(saveButton)
+                        .addGap(60, 60, 60)
+                        .addComponent(btnModificar)
+                        .addGap(51, 51, 51)
+                        .addComponent(btneliminar)
+                        .addGap(68, 68, 68)
+                        .addComponent(btnActualizar)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnasigdetalleord)
+                .addGap(10, 10, 10))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane1)
+                .addGap(68, 68, 68))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(225, 225, 225)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel5)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnNuevoRegistro)
-                            .addComponent(saveButton)
-                            .addComponent(btnModificar)
-                            .addComponent(btneliminar)
-                            .addComponent(btnActualizar))
-                        .addGap(39, 39, 39))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnasigdetalleord)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnasigdetalleord, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNuevoRegistro)
+                    .addComponent(saveButton)
+                    .addComponent(btnModificar)
+                    .addComponent(btneliminar)
+                    .addComponent(btnActualizar))
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -247,7 +253,8 @@ public class Servicios extends javax.swing.JFrame {
 
             NOMBRE = txtnomb.getText();
             DESCRIPCION = txtdesc.getText();
-            CATEGORIA = txtcateg.getText();
+            CATEGORIA = selectorCatego.getSelectedItem().toString();
+            txtcateg.setText(CATEGORIA);
 
             sql = "insert into servicios values(null,'" + NOMBRE + "','" + DESCRIPCION+ "','" + CATEGORIA + "')";
             ora2.regisData(sql);
@@ -422,6 +429,7 @@ public class Servicios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton saveButton;
+    private javax.swing.JComboBox selectorCatego;
     private javax.swing.JTable tablaserv;
     private javax.swing.JTextField txtcateg;
     private javax.swing.JTextField txtcodserv;
