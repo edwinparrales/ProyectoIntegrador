@@ -83,7 +83,7 @@
               <Component id="jScrollPane1" min="-2" pref="96" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnfiltro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnfiltro" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="txtbuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="comboBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -97,7 +97,7 @@
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtcantexis" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
               <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
@@ -143,10 +143,9 @@
     <Component class="javax.swing.JComboBox" name="comboBuscar">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="2">
             <StringItem index="0" value="Codigo"/>
             <StringItem index="1" value="Nombre"/>
-            <StringItem index="2" value="Factura"/>
           </StringArray>
         </Property>
       </Properties>

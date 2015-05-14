@@ -30,6 +30,14 @@ public class DetalleInsumo extends javax.swing.JFrame {
         ora2= new Oraclep();
         txtivainsumo.setEditable(false);
         txtfecha.setEditable(false);
+        txtcodOrden.setEditable(false);
+        txtcoddetalleinsumo.setEditable(false);
+        txtcodinvent.setEditable(false);
+        soloNum(txtcantidad);
+        soloNum(txtprecioIsumo);
+        soloNum(txtporcentiva);
+        
+        
         
         
         
@@ -381,7 +389,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
         int COD_DETALLE, CANTIDAD_INSUMO, ID_INVENTARIOS;
         double IVA_INSUMO, PRECIO_INSUMO_SINIVA;
         try {
-            COD_DETALLE= Integer.parseInt(txtcoddetalleinsumo.getText());
+    
             ID_ORDENES = txtcodOrden.getText();
             ID_INVENTARIOS = Integer.parseInt(txtcodinvent.getText());
             CANTIDAD_INSUMO = Integer.parseInt(txtcantidad.getText());
@@ -390,7 +398,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
             FECHA = txtfecha.getText();
             OBSERVACIONES = txtobservaciones.getText();
             
-            sql="insert into detalles_insumos values(null,'"+ID_ORDENES+"',"+ID_INVENTARIOS+","+CANTIDAD_INSUMO+","+PRECIO_INSUMO_SINIVA+",IVA_INSUMO="+IVA_INSUMO+",FECHA='"+FECHA+"',OBSERVACIONES='"+OBSERVACIONES+"' where COD_DETALLE="+COD_DETALLE;
+            sql="insert into detalles_insumos values(null,'"+ID_ORDENES+"',"+ID_INVENTARIOS+","+CANTIDAD_INSUMO+","+PRECIO_INSUMO_SINIVA+",IVA_INSUMO="+IVA_INSUMO+",FECHA='"+FECHA+"',OBSERVACIONES='"+OBSERVACIONES+"'";
 
         } catch (Exception e) {
                JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
@@ -409,7 +417,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
         int COD_DETALLE, CANTIDAD_INSUMO, ID_INVENTARIOS;
         double IVA_INSUMO, PRECIO_INSUMO_SINIVA;
         try {
-
+             COD_DETALLE= Integer.parseInt(txtcoddetalleinsumo.getText());
             ID_ORDENES = txtcodOrden.getText();
             ID_INVENTARIOS = Integer.parseInt(txtcodinvent.getText());
             CANTIDAD_INSUMO = Integer.parseInt(txtcantidad.getText());
@@ -418,7 +426,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
             FECHA = txtfecha.getText();
             OBSERVACIONES = txtobservaciones.getText();
             
-            sql="update detalles_insumos set ID_ORDENES='"+ID_ORDENES+"',ID_INVENTARIOS="+ID_INVENTARIOS+",CANTIDAD_INSUMO="+CANTIDAD_INSUMO+",PRECIO_INSUMO_SINIVA="+PRECIO_INSUMO_SINIVA+"'"+IVA_INSUMO +",'"+FECHA+"','"+OBSERVACIONES+"')";
+            sql="update detalles_insumos set ID_ORDENES='"+ID_ORDENES+"',ID_INVENTARIOS="+ID_INVENTARIOS+",CANTIDAD_INSUMO="+CANTIDAD_INSUMO+",PRECIO_INSUMO_SINIVA="+PRECIO_INSUMO_SINIVA+",IVA_INSUMO="+IVA_INSUMO +",FECHA='"+FECHA+"',OBSERVACIONES='"+OBSERVACIONES+"' where COD_DETALLE="+COD_DETALLE;
 
         } catch (Exception e) {
                JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);

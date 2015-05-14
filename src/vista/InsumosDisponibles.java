@@ -79,7 +79,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setText("INSUMOS DISPONIBLES");
 
-        comboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Codigo", "Nombre", "Factura" }));
+        comboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Codigo", "Nombre" }));
 
         btnfiltro.setText("Filtrar");
         btnfiltro.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +176,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnfiltro)
+                    .addComponent(btnfiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
@@ -187,7 +187,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtcantexis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -238,6 +238,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
 
             if (modta2.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, " No se encontraron registros ");
+                limpCampos();
             }
 
         }
@@ -259,6 +260,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
                     cs.execute();
                     DetalleInsumo.txtcodinvent.setText(""+codinv);
                     DetalleInsumo.txtcantidad.setText(""+cantreq);
+                    limpCampos();
 
                 } catch (Exception e) {
                 }
@@ -279,16 +281,16 @@ public class InsumosDisponibles extends javax.swing.JFrame {
                             cs.execute();
                             DetalleInsumo.txtcodinvent.setText(""+codinv);
                             DetalleInsumo.txtcantidad.setText("" + cantexis);
-
+                             limpCampos();
                         } catch (Exception e) {
                         }
 
                         break;
                         case JOptionPane.NO_OPTION:
-
+                          limpCampos();
                         break;
                         case JOptionPane.CANCEL_OPTION:
-
+                         limpCampos();
                         break;
                     }
 
