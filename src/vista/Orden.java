@@ -637,7 +637,7 @@ public class Orden extends javax.swing.JFrame {
       public void refresh(){
           
              modta2= new DefaultTableModel();
-          String sql="select * from ordenes ";
+          String sql="select * from ordenes order by COD_ORDENES DESC";
           ora2.consultar(sql);
            
          try {

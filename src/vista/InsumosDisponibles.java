@@ -323,7 +323,13 @@ public class InsumosDisponibles extends javax.swing.JFrame {
         });
     }
     
-    
+    public void limpCampos(){
+        txtcantreq.setText("");
+        txtbuscar.setText("");
+        txtcantexis.setText("");
+        txtcodinv.setText("");
+        
+    }
     
     
     /**
