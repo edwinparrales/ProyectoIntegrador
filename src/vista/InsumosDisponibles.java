@@ -48,7 +48,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
         btnfiltro = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        btncargardetaord = new javax.swing.JButton();
+        btncargardetains = new javax.swing.JButton();
         txtcantreq = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtcodinv = new javax.swing.JTextField();
@@ -92,10 +92,10 @@ public class InsumosDisponibles extends javax.swing.JFrame {
 
         jLabel14.setText("Cantidad:");
 
-        btncargardetaord.setText("Cargar a Detalle Orden");
-        btncargardetaord.addActionListener(new java.awt.event.ActionListener() {
+        btncargardetains.setText("Vincular a detalle insumos");
+        btncargardetains.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btncargardetaordActionPerformed(evt);
+                btncargardetainsActionPerformed(evt);
             }
         });
 
@@ -109,7 +109,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(txtcantreq, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addComponent(btncargardetaord)
+                .addComponent(btncargardetains)
                 .addGap(33, 33, 33))
         );
         jPanel4Layout.setVerticalGroup(
@@ -117,7 +117,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btncargardetaord)
+                    .addComponent(btncargardetains)
                     .addComponent(jLabel14)
                     .addComponent(txtcantreq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -210,10 +210,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
                 String nom = txtbuscar.getText();
                 sql = " select * from inventarios where NOMBRE like'" + nom + "%'"+" and CANT_EXISTENCIA>0 ";
             }
-            if (select.equalsIgnoreCase("Factura")) {
-                String fac = txtbuscar.getText();
-                sql = " select * from inventarios where NUM_FACTURA ='" + fac + "'"+"and CANT_EXISTENCIA>0";
-            }
+           
             ora2.consultar(sql);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, " Llenar los campos correctamente ");
@@ -247,7 +244,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnfiltroActionPerformed
 
-    private void btncargardetaordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargardetaordActionPerformed
+    private void btncargardetainsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncargardetainsActionPerformed
         try {
             int codinv = Integer.parseInt(txtcodinv.getText());
             int cantexis = Integer.parseInt(txtcantexis.getText());
@@ -304,13 +301,13 @@ public class InsumosDisponibles extends javax.swing.JFrame {
         } catch (Exception e) {
 
         }
-    }//GEN-LAST:event_btncargardetaordActionPerformed
+    }//GEN-LAST:event_btncargardetainsActionPerformed
 
     private void tablaasingiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaasingiMouseClicked
      
            int fila = tablaasingi.getSelectedRow();
         txtcodinv.setText(tablaasingi.getModel().getValueAt(fila, 0).toString());
-        txtcantexis.setText(tablaasingi.getModel().getValueAt(fila, 10).toString());
+        txtcantexis.setText(tablaasingi.getModel().getValueAt(fila, 7).toString());
         
         
     }//GEN-LAST:event_tablaasingiMouseClicked
@@ -366,7 +363,7 @@ public class InsumosDisponibles extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btncargardetaord;
+    private javax.swing.JButton btncargardetains;
     private javax.swing.JButton btnfiltro;
     private javax.swing.JComboBox comboBuscar;
     private javax.swing.JLabel jLabel1;
