@@ -28,14 +28,14 @@ public class DetalleInsumo extends javax.swing.JFrame {
         
         modta2 = new DefaultTableModel();
         ora2= new Oraclep();
-        txtivainsumo.setEditable(false);
-        txtfecha.setEditable(false);
-        txtcodOrden.setEditable(false);
-        txtcoddetalleinsumo.setEditable(false);
-        txtcodinvent.setEditable(false);
-        soloNum(txtcantidad);
-        soloNum(txtprecioIsumo);
-        soloNum(txtporcentiva);
+//        txtivainsumo.setEditable(false);
+//        txtfecha.setEditable(false);
+//        txtidorden.setEditable(false);
+//        txtcoddetalleinsumo.setEditable(false);
+//        txtidinven.setEditable(false);
+//        soloNum(txtcantidad);
+//        soloNum(txtprecioIsumo);
+//        soloNum(txtporcentiva);
         
         
         
@@ -57,13 +57,13 @@ public class DetalleInsumo extends javax.swing.JFrame {
         tabladeinv = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        txtcodOrden = new javax.swing.JTextField();
+        txtidorden = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtprecioIsumo = new javax.swing.JTextField();
         txtcantidad = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtcodinvent = new javax.swing.JTextField();
+        txtidinven = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtivainsumo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -76,10 +76,10 @@ public class DetalleInsumo extends javax.swing.JFrame {
         selectorfecha = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         btnActualizar = new javax.swing.JButton();
-        saveButton = new javax.swing.JButton();
         btnNuevoRegistro = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btneliminar = new javax.swing.JButton();
+        Guardar = new javax.swing.JButton();
         btnfinalizarord = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -92,7 +92,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tabladeinv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,8 +156,8 @@ public class DetalleInsumo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtcoddetalleinsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtcodOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtcodinvent, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtidorden, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtidinven, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtcantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtprecioIsumo)
                     .addComponent(txtporcentiva)
@@ -175,11 +175,11 @@ public class DetalleInsumo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtcodOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtidorden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtcodinvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtidinven, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -212,13 +212,6 @@ public class DetalleInsumo extends javax.swing.JFrame {
             }
         });
 
-        saveButton.setText("Guardar");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
-            }
-        });
-
         btnNuevoRegistro.setText("Nuevo");
         btnNuevoRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,6 +233,13 @@ public class DetalleInsumo extends javax.swing.JFrame {
             }
         });
 
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -247,9 +247,9 @@ public class DetalleInsumo extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnNuevoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(Guardar)
                 .addGap(18, 18, 18)
-                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
                 .addComponent(btnModificar)
                 .addGap(27, 27, 27)
                 .addComponent(btneliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,10 +263,10 @@ public class DetalleInsumo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoRegistro)
-                    .addComponent(saveButton)
                     .addComponent(btnModificar)
                     .addComponent(btnActualizar)
-                    .addComponent(btneliminar))
+                    .addComponent(btneliminar)
+                    .addComponent(Guardar))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -338,6 +338,20 @@ public class DetalleInsumo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnfinalizarord, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(62, 62, 62))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -345,21 +359,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(235, 235, 235)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnfinalizarord, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(selectorfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(18, 18, 18)))
+                        .addComponent(jLabel1)))
                 .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
@@ -394,28 +394,6 @@ public class DetalleInsumo extends javax.swing.JFrame {
         refresh();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        String ID_ORDENES, OBSERVACIONES, sql, FECHA;
-        int COD_DETALLE, CANTIDAD_INSUMO, ID_INVENTARIOS;
-        double IVA_INSUMO, PRECIO_INSUMO_SINIVA;
-        try {
-    
-            ID_ORDENES = txtcodOrden.getText();
-            ID_INVENTARIOS = Integer.parseInt(txtcodinvent.getText());
-            CANTIDAD_INSUMO = Integer.parseInt(txtcantidad.getText());
-            PRECIO_INSUMO_SINIVA = Double.parseDouble(txtprecioIsumo.getText());
-            IVA_INSUMO = getIva(Double.parseDouble(txtprecioIsumo.getText()));
-            FECHA = txtfecha.getText();
-            OBSERVACIONES = txtobservaciones.getText();
-            
-            sql="insert into detalles_insumos values(null,'"+ID_ORDENES+"',"+ID_INVENTARIOS+","+CANTIDAD_INSUMO+","+PRECIO_INSUMO_SINIVA+",IVA_INSUMO="+IVA_INSUMO+",FECHA='"+FECHA+"',OBSERVACIONES='"+OBSERVACIONES+"'";
-
-        } catch (Exception e) {
-               JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
-        }
-        
-    }//GEN-LAST:event_saveButtonActionPerformed
-
     private void btnNuevoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoRegistroActionPerformed
         // Limpiar los campos para ingresar un registro nuevo
 
@@ -427,9 +405,9 @@ public class DetalleInsumo extends javax.swing.JFrame {
         int COD_DETALLE, CANTIDAD_INSUMO, ID_INVENTARIOS;
         double IVA_INSUMO, PRECIO_INSUMO_SINIVA;
         try {
-             COD_DETALLE= Integer.parseInt(txtcoddetalleinsumo.getText());
-            ID_ORDENES = txtcodOrden.getText();
-            ID_INVENTARIOS = Integer.parseInt(txtcodinvent.getText());
+            COD_DETALLE= Integer.parseInt(txtcoddetalleinsumo.getText());
+            ID_ORDENES = txtidorden.getText();
+            ID_INVENTARIOS = Integer.parseInt(txtidinven.getText());
             CANTIDAD_INSUMO = Integer.parseInt(txtcantidad.getText());
             PRECIO_INSUMO_SINIVA = Double.parseDouble(txtprecioIsumo.getText());
             IVA_INSUMO = Double.parseDouble(txtivainsumo.getText());
@@ -437,7 +415,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
             OBSERVACIONES = txtobservaciones.getText();
             
             sql="update detalles_insumos set ID_ORDENES='"+ID_ORDENES+"',ID_INVENTARIOS="+ID_INVENTARIOS+",CANTIDAD_INSUMO="+CANTIDAD_INSUMO+",PRECIO_INSUMO_SINIVA="+PRECIO_INSUMO_SINIVA+",IVA_INSUMO="+IVA_INSUMO +",FECHA='"+FECHA+"',OBSERVACIONES='"+OBSERVACIONES+"' where COD_DETALLE="+COD_DETALLE;
-
+             ora2.regisData(sql);
         } catch (Exception e) {
                JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
         }
@@ -446,53 +424,45 @@ public class DetalleInsumo extends javax.swing.JFrame {
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         int cod = Integer.parseInt(txtcoddetalleinsumo.getText());
-        String idord=txtcodOrden.getText();
+
         String sql;
         int respuesta = JOptionPane.showConfirmDialog(null, " ¿Esta seguro que desea elminiar el registro? " + cod, "Eliminar Registro", JOptionPane.YES_NO_CANCEL_OPTION);
         switch (respuesta) {
             case JOptionPane.YES_OPTION:
-            
-            break;
+                try {
+                    sql="delete detalles_insumos where COD_DETALLE="+cod;
+                    ora2.regisData(sql);
+
+                } catch (Exception e) {
+                }
+
+                break;
             case JOptionPane.NO_OPTION:
 
-            break;
+                break;
             case JOptionPane.CANCEL_OPTION:
 
-            break;
+                break;
         }
-
-        if (respuesta == 0) {
-
-            try {
-                sql = "delete detalles_insumos where  COD_DETALLE="+cod;
-                ora2.regisData(sql);
-                sql=" Update ordenes set estado='Creada' where COD_ORDENES='"+idord+"'";
-                ora2.regisData(sql);
-            } catch (Exception e) {
-            }
-
-        }
-        refresh();
-
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnfinalizarordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfinalizarordActionPerformed
         String sql;
-        String idord=txtcodOrden.getText();
+        String idord = txtidorden.getText();
 
-        int respuesta = JOptionPane.showConfirmDialog(null, " ¿ Esta seguro que desea finalizar la orden ? " +idord, "Finalizar orden", JOptionPane.YES_NO_CANCEL_OPTION);
+        int respuesta = JOptionPane.showConfirmDialog(null, " ¿ Esta seguro que desea finalizar la orden ? " + idord, "Finalizar orden", JOptionPane.YES_NO_CANCEL_OPTION);
         switch (respuesta) {
             case JOptionPane.YES_OPTION:
-            sql=" Update ordenes set estado='Finalizada' where COD_ORDENES='"+idord+"'";
-            ora2.regisData(sql);
+                sql = "Update ordenes set estado='Finalizada' where COD_ORDENES='" + idord + "'";
+                ora2.regisData(sql);
 
-            break;
+                break;
             case JOptionPane.NO_OPTION:
 
-            break;
+                break;
             case JOptionPane.CANCEL_OPTION:
 
-            break;
+                break;
         }
 
     }//GEN-LAST:event_btnfinalizarordActionPerformed
@@ -504,9 +474,9 @@ public class DetalleInsumo extends javax.swing.JFrame {
         int fila = tabladeinv.getSelectedRow();
         
            
-        txtcodinvent.setText(tabladeinv.getModel().getValueAt(fila, 0).toString());
-        txtcodOrden.setText(tabladeinv.getModel().getValueAt(fila, 1).toString());
-        txtcodinvent.setText(tabladeinv.getModel().getValueAt(fila, 2).toString());
+        txtcoddetalleinsumo.setText(tabladeinv.getModel().getValueAt(fila, 0).toString());
+        txtidorden.setText(tabladeinv.getModel().getValueAt(fila, 1).toString());
+        txtidinven.setText(tabladeinv.getModel().getValueAt(fila, 2).toString());
         txtcantidad.setText(tabladeinv.getModel().getValueAt(fila, 3).toString());
         txtprecioIsumo.setText(tabladeinv.getModel().getValueAt(fila, 4).toString());
         txtivainsumo.setText(tabladeinv.getModel().getValueAt(fila, 5).toString());
@@ -542,13 +512,39 @@ public class DetalleInsumo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtfechaMouseClicked
 
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+
+        String ID_ORDENES, OBSERVACIONES, sql, FECHA;
+        int COD_DETALLE, CANTIDAD_INSUMO, ID_INVENTARIOS;
+        double IVA_INSUMO, PRECIO_INSUMO_SINIVA;
+        try {
+
+            ID_ORDENES = txtidorden.getText();
+            ID_INVENTARIOS = Integer.parseInt(txtidinven.getText());
+            CANTIDAD_INSUMO = Integer.parseInt(txtcantidad.getText());
+            PRECIO_INSUMO_SINIVA = Double.parseDouble(txtprecioIsumo.getText());
+            IVA_INSUMO = getIva(Double.parseDouble(txtprecioIsumo.getText()));
+           
+            FECHA = txtfecha.getText();
+            OBSERVACIONES = txtobservaciones.getText();
+            
+            sql="insert into DETALLES_INSUMOS values(null,'"+ID_ORDENES+"',"+ID_INVENTARIOS+","+CANTIDAD_INSUMO+","+PRECIO_INSUMO_SINIVA +","+IVA_INSUMO+",'"+FECHA+"','"+ OBSERVACIONES+"')";
+            ora2.regisData(sql);
+        } catch(Exception e) {
+             JOptionPane.showMessageDialog(this, " ¡Debe llenar todos los campos correctamente !", " Error! ", JOptionPane.ERROR_MESSAGE);
+        }
+
+        
+        
+    }//GEN-LAST:event_GuardarActionPerformed
+
     //Metodos utilitarios
     
      public void refresh(){
-          modta2= new DefaultTableModel();
-          String sql="select * from detalles_insumos";
-          ora2.consultar(sql);
-           
+         modta2 = new DefaultTableModel();
+         String sql = "select * from detalles_insumos";
+         ora2.consultar(sql);
+
          try {
              int numCol = ora2.getRstmdata().getColumnCount();
              for (int i = 0; i < numCol; i++) {
@@ -571,14 +567,17 @@ public class DetalleInsumo extends javax.swing.JFrame {
     }
    
     public void limpCampos() {
-        txtcodinvent.setText("");
-        txtcodOrden.setText("");
-        txtcodinvent.setText("");
+        txtidinven.setText("");
+        txtidorden.setText("");
+        txtidinven.setText("");
         txtcantidad.setText("");
         txtprecioIsumo.setText("");
         txtivainsumo.setText("");
         txtfecha.setText("");
         txtobservaciones.setText("");
+        txtporcentiva.setText("");
+        txtcoddetalleinsumo.setText("");
+        
        
         
     }
@@ -725,6 +724,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Guardar;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevoRegistro;
@@ -751,14 +751,13 @@ public class DetalleInsumo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton saveButton;
     private com.toedter.calendar.JDateChooser selectorfecha;
     private javax.swing.JTable tabladeinv;
     public static javax.swing.JTextField txtcantidad;
-    public static javax.swing.JTextField txtcodOrden;
     private javax.swing.JTextField txtcoddetalleinsumo;
-    public static javax.swing.JTextField txtcodinvent;
     private javax.swing.JTextField txtfecha;
+    public static javax.swing.JTextField txtidinven;
+    public static javax.swing.JTextField txtidorden;
     private javax.swing.JTextField txtivainsumo;
     private javax.swing.JTextArea txtobservaciones;
     private javax.swing.JTextField txtporcentiva;

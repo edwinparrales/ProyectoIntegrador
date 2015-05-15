@@ -454,10 +454,18 @@ public class Especialista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 //Metodo para eliminar registros de la tabla especialistas 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        String dnie=txtdni.getText();
-        int respuesta = JOptionPane.showConfirmDialog(null,  " ¿Esta seguro que desea elminiar el registro? "+dnie,"Eliminar Registro", JOptionPane.YES_NO_CANCEL_OPTION);
+        String dnie = txtdni.getText();
+        int respuesta = JOptionPane.showConfirmDialog(null, " ¿Esta seguro que desea elminiar el registro? " + dnie, "Eliminar Registro", JOptionPane.YES_NO_CANCEL_OPTION);
         switch (respuesta) {
             case JOptionPane.YES_OPTION:
+                try {
+
+                    CallableStatement cs = ora.getCon().getConexion().prepareCall("call p_elimespc(?)");
+                    cs.setString(1, dnie);
+                    cs.execute();
+
+                } catch (Exception e) {
+                }
 
                 break;
             case JOptionPane.NO_OPTION:
@@ -467,25 +475,19 @@ public class Especialista extends javax.swing.JFrame {
 
                 break;
         }
-  
-        
-        
-        
-        
-        
-        
-        if (respuesta == 0) {
 
-        try {
-            
-            CallableStatement cs = ora.getCon().getConexion().prepareCall("call p_elimespc(?)");
-             cs.setString(1,dnie);
-             cs.execute();
-
-        } catch (Exception e) {
-        }
-        
-        }
+//        if (respuesta == 0) {
+//
+//        try {
+//            
+//            CallableStatement cs = ora.getCon().getConexion().prepareCall("call p_elimespc(?)");
+//             cs.setString(1,dnie);
+//             cs.execute();
+//
+//        } catch (Exception e) {
+//        }
+//        
+//        }
         
     }//GEN-LAST:event_btneliminarActionPerformed
 
@@ -588,40 +590,40 @@ public class Especialista extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Especialista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Especialista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Especialista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Especialista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                
-                new Especialista().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Especialista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Especialista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Especialista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Especialista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        
+//        
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                
+//                new Especialista().setVisible(true);
+//            }
+//        });
+//    }
     
  
     
