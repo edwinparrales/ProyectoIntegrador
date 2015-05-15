@@ -57,7 +57,7 @@ public class ModEspecial extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaclientes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnvindetalleservicios = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
@@ -198,10 +198,10 @@ public class ModEspecial extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Vincular a detalles servicios");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnvindetalleservicios.setText("Vincular a detalles servicios");
+        btnvindetalleservicios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnvindetalleserviciosActionPerformed(evt);
             }
         });
 
@@ -234,7 +234,7 @@ public class ModEspecial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtcodorden, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(jButton1)
+                        .addComponent(btnvindetalleservicios)
                         .addGap(27, 27, 27)
                         .addComponent(btnvininsum, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -274,7 +274,7 @@ public class ModEspecial extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnvindetalleservicios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnvininsum, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtcodorden, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -369,9 +369,19 @@ public class ModEspecial extends javax.swing.JFrame {
         
     }//GEN-LAST:event_tablamgeMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnvindetalleserviciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvindetalleserviciosActionPerformed
+     
+        try {
+
+            DetalleServicio.txtcodorden.setText(txtcodorden.getText());
+        } catch (Exception e) {
+
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_btnvindetalleserviciosActionPerformed
 
     
        public void soloNum(JTextField tx) {
@@ -483,8 +493,8 @@ public class ModEspecial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BTNFILTRO;
+    private javax.swing.JButton btnvindetalleservicios;
     private javax.swing.JButton btnvininsum;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

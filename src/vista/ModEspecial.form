@@ -64,7 +64,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtcodorden" min="-2" pref="139" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnvindetalleservicios" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="btnvininsum" min="-2" pref="181" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -112,7 +112,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" pref="23" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                      <Component id="jButton1" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="btnvindetalleservicios" alignment="1" min="-2" pref="44" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnvininsum" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="txtcodorden" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
@@ -350,12 +350,12 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnvindetalleservicios">
       <Properties>
         <Property name="text" type="java.lang.String" value="Vincular a detalles servicios"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnvindetalleserviciosActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
