@@ -58,11 +58,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuespecialistas = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menuclient = new javax.swing.JMenuItem();
+        menuprovee = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
 
@@ -166,20 +166,45 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bd.jpg"))); // NOI18N
         jMenu2.setText("Registrar");
 
-        jMenuItem1.setText("Especialistas");
-        jMenu2.add(jMenuItem1);
+        menuespecialistas.setText("Especialistas");
+        menuespecialistas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuespecialistasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuespecialistas);
 
         jMenuItem2.setText("Inventarios");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Servicios");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
-        jMenuItem4.setText("Clientes");
-        jMenu2.add(jMenuItem4);
+        menuclient.setText("Clientes");
+        menuclient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuclientActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuclient);
 
-        jMenuItem5.setText("Proveedores");
-        jMenu2.add(jMenuItem5);
+        menuprovee.setText("Proveedores");
+        menuprovee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuproveeActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuprovee);
 
         jMenuBar1.add(jMenu2);
 
@@ -238,6 +263,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnordenesasigActionPerformed
 
+    private void menuespecialistasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuespecialistasActionPerformed
+      Especialista es = new Especialista();
+      es.setVisible(true);
+        
+    }//GEN-LAST:event_menuespecialistasActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       Inventarios in = new Inventarios();
+       in.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       Servicios se = new Servicios();
+       se.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void menuclientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuclientActionPerformed
+   
+        Cliente cl = new Cliente();
+        cl.setVisible(true);
+        
+        
+    }//GEN-LAST:event_menuclientActionPerformed
+
+    private void menuproveeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuproveeActionPerformed
+        // TODO add your handling code here:
+        
+        Proveedores pro = new Proveedores();
+        pro.setVisible(true);
+    }//GEN-LAST:event_menuproveeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -283,13 +343,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JMenuItem menuclient;
+    private javax.swing.JMenuItem menuespecialistas;
+    private javax.swing.JMenuItem menuprovee;
     // End of variables declaration//GEN-END:variables
 }

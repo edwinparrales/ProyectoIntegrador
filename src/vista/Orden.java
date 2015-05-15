@@ -315,6 +315,7 @@ public class Orden extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnasigequiposcliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconpc.png"))); // NOI18N
         btnasigequiposcliente.setText("Vincular a Ingreso Equipo");
         btnasigequiposcliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,7 +365,7 @@ public class Orden extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lbcod, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -381,7 +382,7 @@ public class Orden extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
