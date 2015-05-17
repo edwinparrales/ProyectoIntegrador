@@ -329,7 +329,7 @@ public class ReporteCuenta extends javax.swing.JFrame {
           String txttotal;
          String nord=txtnumorden.getText();
          
-         String sql = "select DETALLES_SERVICIOS.*,detalles_servicios.cantidad*(detalles_servicios.valor_servicio+detalles_servicios.valor_iva) from detalles_servicios where ID_ORDEN='"+nord+"'";
+         String sql = "select DETALLES_SERVICIOS.*,detalles_servicios.cantidad*(detalles_servicios.valor_servicio+detalles_servicios.valor_iva)AS TOTAL from detalles_servicios where ID_ORDEN='"+nord+"'";
          ora2.consultar(sql);
 
          try {
@@ -381,7 +381,7 @@ public class ReporteCuenta extends javax.swing.JFrame {
       public void detalleInsu(){
           modta2 = new DefaultTableModel();
           String nord=txtnumorden.getText();
-         String sql = "select detalles_insumos.*,detalles_insumos.cantidad_insumo*(detalles_insumos.precio_insumo_siniva+detalles_insumos.iva_insumo) from detalles_insumos where ID_ORDENES='"+nord+"'";
+         String sql = "select detalles_insumos.*,detalles_insumos.cantidad_insumo*(detalles_insumos.precio_insumo_siniva+detalles_insumos.iva_insumo)AS TOTAL from detalles_insumos where ID_ORDENES='"+nord+"'";
          ora2.consultar(sql);
 
          try {
