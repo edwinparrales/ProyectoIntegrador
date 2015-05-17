@@ -551,7 +551,7 @@ public class DetalleInsumo extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
        CrearReport cr = new CrearReport();
-       cr.detalleInsumos();
+       cr.detalleInsumos(txtidorden.getText());
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 

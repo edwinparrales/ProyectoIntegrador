@@ -6,6 +6,9 @@
 package reportes;
 
 import controlador.Oraclep;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -47,20 +50,24 @@ public class CrearReport {
       }
     
     
-    public void detalleInsumos(){
+    public void detalleInsumos(String ordi ){
         Oraclep ora = new Oraclep();
         ora.getCon().conectar();
-        String ruta = "E:\\AreaTrabajo2\\JavaSoluciones\\src\\reportes\\report1.jasper";
+       
+    
 
         try {
-            JasperReport js = (JasperReport) JRLoader.loadObjectFromFile(ruta);
-            JasperPrint jp = JasperFillManager.fillReport(js, null, ora.getCon().getConexion());
-            JasperViewer jv = new JasperViewer(jp);
-            jv.setVisible(true);
-            jv.setTitle(" Detalle de Insumos ");
-
+             String ruta = "E:\\AreaTrabajo2\\JavaSoluciones\\src\\reportes\\report1.jasper";
+             Map parametros = new HashMap();
+             parametros.put("ord", ordi);
+            //JasperReport js = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+             JasperPrint jp = JasperFillManager.fillReport(ruta,parametros, ora.getCon().getConexion());
+             JasperViewer jv = new JasperViewer(jp,false);
+            
+             jv.setTitle(" Soluciones E&S ");
+             jv.setVisible(true);
         } catch (Exception e) {
-
+            JOptionPane.showMessageDialog(null, e);
         }
 
 
