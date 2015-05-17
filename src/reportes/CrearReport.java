@@ -22,25 +22,50 @@ import net.sf.jasperreports.view.JasperViewer;
 public class CrearReport {
     
     
-    public static void main(String[] args) {
+    public CrearReport(){
         
-     Oraclep ora = new Oraclep();
-     ora.getCon().conectar();
-     String ruta = "E:\\AreaTrabajo2\\JavaSoluciones\\src\\reportes\\report3.jasper";
-       
+    }
     
+    
+    
+      public void inven(){  
+          Oraclep ora = new Oraclep();
+          ora.getCon().conectar();
+          String ruta = "E:\\AreaTrabajo2\\JavaSoluciones\\src\\reportes\\report3.jasper";
+
+          try {
+              JasperReport js = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+              JasperPrint jp = JasperFillManager.fillReport(js, null, ora.getCon().getConexion());
+              JasperViewer jv = new JasperViewer(jp);
+              jv.setVisible(true);
+              jv.setTitle("prueba");
+
+          } catch (Exception e) {
+
+          }
+     
+      }
+    
+    
+    public void detalleInsumos(){
+        Oraclep ora = new Oraclep();
+        ora.getCon().conectar();
+        String ruta = "E:\\AreaTrabajo2\\JavaSoluciones\\src\\reportes\\report1.jasper";
+
         try {
-           JasperReport js  = (JasperReport)JRLoader.loadObjectFromFile(ruta);
-            JasperPrint jp = JasperFillManager.fillReport(js,null,ora.getCon().getConexion());
+            JasperReport js = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+            JasperPrint jp = JasperFillManager.fillReport(js, null, ora.getCon().getConexion());
             JasperViewer jv = new JasperViewer(jp);
             jv.setVisible(true);
-            jv.setTitle("prueba");
+            jv.setTitle(" Detalle de Insumos ");
 
         } catch (Exception e) {
 
         }
-     
+
+
     }
+    
 }
          
      

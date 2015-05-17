@@ -13,7 +13,7 @@ as Total from DETALLES_INSUMOS]]>
 	<group name="ID_ORDENES">
 		<groupExpression><![CDATA[$F{ID_ORDENES}]]></groupExpression>
 		<groupHeader>
-			<band height="48">
+			<band height="113">
 				<staticText>
 					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="e362d927-cf6f-4116-b096-edccb134aa5d"/>
 					<textElement>
@@ -22,7 +22,7 @@ as Total from DETALLES_INSUMOS]]>
 					<text><![CDATA[ID_ORDENES]]></text>
 				</staticText>
 				<textField>
-					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="be9deab3-8fd0-47f0-bdfd-f7b1d64c8ead"/>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="47" forecolor="#006699" backcolor="#E6E6E6" uuid="be9deab3-8fd0-47f0-bdfd-f7b1d64c8ead"/>
 					<textElement>
 						<font size="24" isBold="true"/>
 					</textElement>
@@ -31,6 +31,13 @@ as Total from DETALLES_INSUMOS]]>
 				<line>
 					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="629c33f5-915c-43fe-b4b7-9d518d208411"/>
 				</line>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="63" width="523" height="34" uuid="97a4ff6b-02a6-4023-aaaf-ae2cc7ed51f2"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+				</textField>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -44,13 +51,6 @@ as Total from DETALLES_INSUMOS]]>
 		<band height="72">
 			<frame>
 				<reportElement mode="Opaque" x="-20" y="-20" width="575" height="92" backcolor="#006699" uuid="cafd5853-bf3f-4e63-a8f1-e0a60a35a174"/>
-				<staticText>
-					<reportElement x="20" y="20" width="341" height="43" forecolor="#FFFFFF" uuid="994877b1-b7b5-4899-adcf-24359c7cae5b"/>
-					<textElement>
-						<font size="34" isBold="true"/>
-					</textElement>
-					<text><![CDATA[TOTAL INSUMOS]]></text>
-				</staticText>
 			</frame>
 		</band>
 	</title>
@@ -58,7 +58,7 @@ as Total from DETALLES_INSUMOS]]>
 		<band height="13"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="21">
+		<band height="30">
 			<line>
 				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="f1284fd7-b6fb-4713-af3e-eca6d72c6b06"/>
 			</line>
@@ -72,17 +72,10 @@ as Total from DETALLES_INSUMOS]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="29">
+		<band height="38">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="8feda522-775c-48ab-a06e-139aca5db5c2"/>
 			</line>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="-15" width="523" height="34" uuid="97a4ff6b-02a6-4023-aaaf-ae2cc7ed51f2"/>
-				<textElement>
-					<font size="14"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
-			</textField>
 		</band>
 	</detail>
 	<columnFooter>

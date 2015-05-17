@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2b566f1b-5ac9-4dd4-95be-5829a04f7edb">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="144"/>
+	<property name="ireport.y" value="182"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA["E:\\AreaTrabajo2\\JavaSoluciones\\src\\reportes\\"]]></defaultValueExpression>
 	</parameter>
@@ -53,22 +53,22 @@
 		<band/>
 	</background>
 	<title>
-		<band height="72">
+		<band height="148">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="ff19bc65-bb10-4839-b828-bc1cbd8d0987"/>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="81" backcolor="#006699" uuid="ff19bc65-bb10-4839-b828-bc1cbd8d0987"/>
 				<staticText>
-					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="15953f3c-ff3a-4216-9b9c-f83d7f15e739"/>
+					<reportElement x="20" y="20" width="361" height="43" forecolor="#FFFFFF" uuid="15953f3c-ff3a-4216-9b9c-f83d7f15e739"/>
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
+					<text><![CDATA[SOLUCIONES E&S]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="1b6800e3-937d-4eff-9ce3-66d45897ab57"/>
+					<reportElement x="432" y="43" width="120" height="20" forecolor="#FFFFFF" uuid="1b6800e3-937d-4eff-9ce3-66d45897ab57"/>
 					<textElement textAlignment="Right">
-						<font size="14" isBold="false"/>
+						<font fontName="Serif" size="12" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Add a description here]]></text>
+					<text><![CDATA[La tecnologia a tu favor]]></text>
 				</staticText>
 			</frame>
 		</band>
@@ -206,6 +206,10 @@
 				<reportElement x="0" y="4" width="100" height="13" uuid="eae419ce-7154-419a-be9c-6f6e847de0d1"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="100" y="90" width="300" height="60" uuid="a2972ea4-db0b-444c-bc21-c5e08fdaa4ac"/>
+				<imageExpression><![CDATA["E:\\AreaTrabajo2\\JavaSoluciones\\src\\imagenes\\logo soluciones2jasper.png"]]></imageExpression>
+			</image>
 		</band>
 	</pageFooter>
 	<summary>

@@ -14,6 +14,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import reportes.CrearReport;
 
 /**
  *
@@ -331,6 +332,11 @@ public class DetalleInsumo extends javax.swing.JFrame {
         jMenu3.setText("Imprimir");
 
         jMenuItem3.setText("Reporte Insumos");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenuBar1.add(jMenu3);
@@ -542,6 +548,12 @@ public class DetalleInsumo extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_GuardarActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       CrearReport cr = new CrearReport();
+       cr.detalleInsumos();
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     //Metodos utilitarios
     

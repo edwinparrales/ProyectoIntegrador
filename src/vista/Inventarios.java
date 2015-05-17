@@ -15,6 +15,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import reportes.CrearReport;
 
 /**
  *
@@ -333,6 +334,11 @@ public class Inventarios extends javax.swing.JFrame {
         jMenu3.setText("Imprimir");
 
         jMenuItem1.setText("Reporte");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem1);
 
         jMenuBar1.add(jMenu3);
@@ -550,6 +556,14 @@ public class Inventarios extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnfiltroActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+        CrearReport cr = new CrearReport();
+        cr.inven();
+        
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     
 
