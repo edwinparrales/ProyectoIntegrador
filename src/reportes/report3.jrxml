@@ -92,7 +92,7 @@
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[VALOR_SINIVA_UNIDAD]]></text>
+				<text><![CDATA[VALOR SINIVA UNIDAD]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="316" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0d180e68-2408-44fa-bddb-244200a0dcb7"/>
