@@ -13,7 +13,7 @@ as Total from DETALLES_INSUMOS]]>
 	<group name="ID_ORDENES">
 		<groupExpression><![CDATA[$F{ID_ORDENES}]]></groupExpression>
 		<groupHeader>
-			<band height="113">
+			<band height="128">
 				<staticText>
 					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="e362d927-cf6f-4116-b096-edccb134aa5d"/>
 					<textElement>
@@ -22,7 +22,7 @@ as Total from DETALLES_INSUMOS]]>
 					<text><![CDATA[ID_ORDENES]]></text>
 				</staticText>
 				<textField>
-					<reportElement mode="Opaque" x="100" y="0" width="455" height="47" forecolor="#006699" backcolor="#E6E6E6" uuid="be9deab3-8fd0-47f0-bdfd-f7b1d64c8ead"/>
+					<reportElement mode="Opaque" x="100" y="0" width="455" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="be9deab3-8fd0-47f0-bdfd-f7b1d64c8ead"/>
 					<textElement>
 						<font size="24" isBold="true"/>
 					</textElement>

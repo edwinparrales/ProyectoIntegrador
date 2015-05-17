@@ -20,7 +20,7 @@
 	<group name="ID_ORDENES">
 		<groupExpression><![CDATA[$F{ID_ORDENES}]]></groupExpression>
 		<groupHeader>
-			<band height="129">
+			<band height="167">
 				<staticText>
 					<reportElement mode="Opaque" x="0" y="0" width="100" height="32" forecolor="#666666" backcolor="#E6E6E6" uuid="446e24e9-fe48-4998-a0a8-2069fd7313b4"/>
 					<textElement>
