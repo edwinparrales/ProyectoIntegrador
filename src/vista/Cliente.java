@@ -518,7 +518,7 @@ public class Cliente extends javax.swing.JFrame {
     
      public void refresh(){
           modta2= new DefaultTableModel();
-          String sql="select * from clientes";
+          String sql="select * from clientes ORDER BY COD_CLIENTES DESC";
           ora2.consultar(sql);
            
          try {

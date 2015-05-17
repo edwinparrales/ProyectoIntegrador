@@ -508,7 +508,7 @@ public class Especialista extends javax.swing.JFrame {
     public void refresh(){
         modta=new DefaultTableModel();
       
-       ora.consultar("select * from especialistas");
+       ora.consultar("select * from especialistas ORDER BY COD_ESPEC DESC");
        
         try {
              int numCol = ora.getRstmdata().getColumnCount();

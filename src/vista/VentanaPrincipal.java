@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import reportes.ReporteCuenta;
 
 /**
  *
@@ -229,6 +230,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Imprimir");
 
         jMenuItem6.setText("Resumen orden");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem6);
 
         jMenuBar1.add(jMenu3);
@@ -336,6 +342,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 
                 
     }//GEN-LAST:event_btninsumosActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // Imprimir orden
+        
+        ReporteCuenta rp = new ReporteCuenta();
+        rp.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
