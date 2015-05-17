@@ -487,7 +487,7 @@ public class Proveedores extends javax.swing.JFrame {
     
      public void refresh(){
           modta2= new DefaultTableModel();
-          String sql="select * from proveedores";
+          String sql="select * from proveedores order by cod_proveedores desc";
           ora2.consultar(sql);
            
          try {
