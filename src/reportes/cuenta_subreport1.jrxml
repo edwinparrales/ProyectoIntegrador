@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cuenta_subreport1" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b85c9781-bdcb-47b9-b9ae-28a351563c19">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="16"/>
+	<property name="ireport.y" value="18"/>
+	<parameter name="ord" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT SUM(detalles_servicios.cantidad*(detalles_servicios.valor_servicio+detalles_servicios.valor_iva))as TOTAL_SERVICIOS  FROM detalles_servicios WHERE detalles_servicios.ID_ORDEN=$P{ord}]]>
+	</queryString>
+	<field name="TOTAL_SERVICIOS" class="java.math.BigDecimal"/>
+	<group name="TOTAL_SERVICIOS">
+		<groupExpression><![CDATA[$F{TOTAL_SERVICIOS}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="116" splitType="Stretch">
+			<textField>
+				<reportElement x="255" y="57" width="100" height="20" uuid="7765b6f5-31aa-4742-a027-5e343092728c"/>
+				<textFieldExpression><![CDATA[$F{TOTAL_SERVICIOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="155" y="57" width="100" height="20" uuid="4e658faf-b2f2-420a-b820-46474859d95b"/>
+				<text><![CDATA[TOTAL SERVICIOS:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="174" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

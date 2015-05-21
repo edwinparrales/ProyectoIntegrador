@@ -39,7 +39,7 @@ public class CrearReport {
           try {
               JasperReport js = (JasperReport) JRLoader.loadObjectFromFile(ruta);
               JasperPrint jp = JasperFillManager.fillReport(js, null, ora.getCon().getConexion());
-              JasperViewer jv = new JasperViewer(jp);
+              JasperViewer jv = new JasperViewer(jp,false);
               jv.setVisible(true);
               jv.setTitle("prueba");
 
